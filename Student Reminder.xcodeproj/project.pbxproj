@@ -15,6 +15,11 @@
 		E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3D38CD31B1E22BA00D6C709 /* Images.xcassets */; };
 		E3D38CD71B1E22BA00D6C709 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */; };
 		E3D38CE31B1E22BA00D6C709 /* Student_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CE21B1E22BA00D6C709 /* Student_ReminderTests.swift */; };
+		E3D38CEE1B1E33A100D6C709 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CED1B1E33A100D6C709 /* CoreDataManager.swift */; };
+		E3D38CFC1B1E35D800D6C709 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CF81B1E35D800D6C709 /* Subjects.swift */; };
+		E3D38CFD1B1E35D800D6C709 /* SentEvaluations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CF91B1E35D800D6C709 /* SentEvaluations.swift */; };
+		E3D38CFE1B1E35D800D6C709 /* AlarmReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CFA1B1E35D800D6C709 /* AlarmReminder.swift */; };
+		E3D38CFF1B1E35D800D6C709 /* Evaluations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CFB1B1E35D800D6C709 /* Evaluations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		E3D38CDC1B1E22BA00D6C709 /* Student ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Student ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D38CE11B1E22BA00D6C709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D38CE21B1E22BA00D6C709 /* Student_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student_ReminderTests.swift; sourceTree = "<group>"; };
+		E3D38CED1B1E33A100D6C709 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E3D38CF81B1E35D800D6C709 /* Subjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subjects.swift; path = "Student Reminder.xcodeproj/../Subjects.swift"; sourceTree = "<group>"; };
+		E3D38CF91B1E35D800D6C709 /* SentEvaluations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentEvaluations.swift; path = "Student Reminder.xcodeproj/../SentEvaluations.swift"; sourceTree = "<group>"; };
+		E3D38CFA1B1E35D800D6C709 /* AlarmReminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmReminder.swift; path = "Student Reminder.xcodeproj/../AlarmReminder.swift"; sourceTree = "<group>"; };
+		E3D38CFB1B1E35D800D6C709 /* Evaluations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Evaluations.swift; path = "Student Reminder.xcodeproj/../Evaluations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 		E3D38CB91B1E22BA00D6C709 = {
 			isa = PBXGroup;
 			children = (
+				E3D38CEF1B1E359C00D6C709 /* Entities */,
 				E3D38CC41B1E22BA00D6C709 /* Student Reminder */,
 				E3D38CDF1B1E22BA00D6C709 /* Student ReminderTests */,
 				E3D38CC31B1E22BA00D6C709 /* Products */,
@@ -81,6 +92,7 @@
 		E3D38CC41B1E22BA00D6C709 /* Student Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				E3D38CEC1B1E337C00D6C709 /* Manager */,
 				E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */,
 				E3D38CCC1B1E22BA00D6C709 /* MasterViewController.swift */,
 				E3D38CCE1B1E22BA00D6C709 /* DetailViewController.swift */,
@@ -116,6 +128,25 @@
 				E3D38CE11B1E22BA00D6C709 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E3D38CEC1B1E337C00D6C709 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E3D38CED1B1E33A100D6C709 /* CoreDataManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		E3D38CEF1B1E359C00D6C709 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E3D38CF81B1E35D800D6C709 /* Subjects.swift */,
+				E3D38CF91B1E35D800D6C709 /* SentEvaluations.swift */,
+				E3D38CFA1B1E35D800D6C709 /* AlarmReminder.swift */,
+				E3D38CFB1B1E35D800D6C709 /* Evaluations.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D38CFF1B1E35D800D6C709 /* Evaluations.swift in Sources */,
+				E3D38CFC1B1E35D800D6C709 /* Subjects.swift in Sources */,
+				E3D38CFE1B1E35D800D6C709 /* AlarmReminder.swift in Sources */,
+				E3D38CFD1B1E35D800D6C709 /* SentEvaluations.swift in Sources */,
 				E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */,
 				E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */,
 				E3D38CCD1B1E22BA00D6C709 /* MasterViewController.swift in Sources */,
+				E3D38CEE1B1E33A100D6C709 /* CoreDataManager.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
