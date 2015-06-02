@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="AlarmReminder" representedClassName="PRODUCT_MODULE_NAME.AlarmReminder" syncable="YES">
-        <attribute name="alarmCode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="dateAlarm" optional="YES" attributeType="Date" syncable="YES"/>
+    <entity name="Evaluated" representedClassName="PRODUCT_MODULE_NAME.SentEvaluations" syncable="YES">
+        <attribute name="evaluatedObject" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="Evaluations" representedClassName="PRODUCT_MODULE_NAME.Evaluations" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="evaluationCode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="grade" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="subjectCode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" syncable="YES"/>
-    </entity>
-    <entity name="SentEvaluations" representedClassName="PRODUCT_MODULE_NAME.SentEvaluations" syncable="YES">
-        <attribute name="sentCode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="evaluationCode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Evaluations" syncable="YES"/>
+        <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" syncable="YES"/>
     </entity>
     <entity name="Subjects" representedClassName="PRODUCT_MODULE_NAME.Subjects" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="subjectCode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Evaluations" positionX="-1845" positionY="-5458" width="162" height="133"/>
-        <element name="Subjects" positionX="-2169" positionY="-5679" width="128" height="73"/>
-        <element name="AlarmReminder" positionX="-1820" positionY="-5634" width="128" height="73"/>
-        <element name="SentEvaluations" positionX="-1856" positionY="-5196" width="128" height="73"/>
+        <element name="Evaluations" positionX="-1845" positionY="-5458" width="162" height="118"/>
+        <element name="Subjects" positionX="-2169" positionY="-5679" width="128" height="58"/>
+        <element name="Evaluated" positionX="-1856" positionY="-5196" width="128" height="58"/>
     </elements>
 </model>

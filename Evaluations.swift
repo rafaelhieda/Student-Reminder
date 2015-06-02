@@ -15,7 +15,6 @@ class Evaluations: NSManagedObject {
     @NSManaged var grade: NSNumber
     @NSManaged var date: NSDate
     @NSManaged var name: String
-    @NSManaged var evaluationCode: NSNumber
-    @NSManaged var subjectCode: Subjects
+    @NSManaged var subject: Subjects
 
 }

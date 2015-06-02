@@ -11,7 +11,6 @@ import CoreData
 
 class SentEvaluations: NSManagedObject {
 
-    @NSManaged var sentCode: NSNumber
-    @NSManaged var evaluationCode: Evaluations
+    @NSManaged var evaluatedObject: AnyObject
 
 }

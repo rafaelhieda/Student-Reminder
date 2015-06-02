@@ -12,6 +12,5 @@ import CoreData
 class Subjects: NSManagedObject {
 
     @NSManaged var name: String
-    @NSManaged var subjectCode: NSNumber
 
 }
