@@ -15,10 +15,10 @@
 		E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3D38CD31B1E22BA00D6C709 /* Images.xcassets */; };
 		E3D38CD71B1E22BA00D6C709 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */; };
 		E3D38CE31B1E22BA00D6C709 /* Student_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CE21B1E22BA00D6C709 /* Student_ReminderTests.swift */; };
-		E3D38CEE1B1E33A100D6C709 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CED1B1E33A100D6C709 /* CoreDataManager.swift */; };
 		E3D38D151B1EBA2000D6C709 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D121B1EBA2000D6C709 /* Subjects.swift */; };
 		E3D38D161B1EBA2000D6C709 /* Evaluations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D131B1EBA2000D6C709 /* Evaluations.swift */; };
 		E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D141B1EBA2000D6C709 /* SentEvaluations.swift */; };
+		E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +44,10 @@
 		E3D38CDC1B1E22BA00D6C709 /* Student ReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Student ReminderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D38CE11B1E22BA00D6C709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D38CE21B1E22BA00D6C709 /* Student_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student_ReminderTests.swift; sourceTree = "<group>"; };
-		E3D38CED1B1E33A100D6C709 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E3D38D121B1EBA2000D6C709 /* Subjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
 		E3D38D131B1EBA2000D6C709 /* Evaluations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluations.swift; sourceTree = "<group>"; };
 		E3D38D141B1EBA2000D6C709 /* SentEvaluations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentEvaluations.swift; sourceTree = "<group>"; };
+		E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 		E3D38CEC1B1E337C00D6C709 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				E3D38CED1B1E33A100D6C709 /* CoreDataManager.swift */,
+				E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 				E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */,
 				E3D38CCD1B1E22BA00D6C709 /* MasterViewController.swift in Sources */,
 				E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */,
-				E3D38CEE1B1E33A100D6C709 /* CoreDataManager.swift in Sources */,
+				E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +451,7 @@
 				E3D38CE81B1E22BA00D6C709 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3D38CE91B1E22BA00D6C709 /* Build configuration list for PBXNativeTarget "Student ReminderTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +460,7 @@
 				E3D38CEB1B1E22BA00D6C709 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
