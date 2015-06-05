@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
@@ -22,17 +22,20 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.valueForKey("timeStamp")!.description
-            }
-        }
+//        if let detail: AnyObject = self.detailItem {
+//            if let label = self.detailDescriptionLabel {
+//                label.text = detail.valueForKey("timeStamp")!.description
+//            }
+//        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+                let manager = CoreDataManager.sharedInstance
+                manager.insertSubject("Fisica1")
+                manager.insertSubject("Engenharia de Software 2")
     }
 
     override func didReceiveMemoryWarning() {

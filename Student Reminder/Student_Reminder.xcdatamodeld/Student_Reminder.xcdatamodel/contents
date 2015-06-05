@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Evaluated" representedClassName="PRODUCT_MODULE_NAME.SentEvaluations" syncable="YES">
+    <entity name="Evaluated" representedClassName="Student_Reminder.Evaluated" syncable="YES">
         <attribute name="evaluatedObject" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
-    <entity name="Evaluations" representedClassName="PRODUCT_MODULE_NAME.Evaluations" syncable="YES">
+    <entity name="Evaluations" representedClassName="Student_Reminder.Evaluations" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="grade" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" syncable="YES"/>
     </entity>
-    <entity name="Subjects" representedClassName="PRODUCT_MODULE_NAME.Subjects" syncable="YES">
+    <entity name="Subjects" representedClassName="Student_Reminder.Subjects" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
