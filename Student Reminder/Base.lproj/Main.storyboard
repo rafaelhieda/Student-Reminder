@@ -74,44 +74,150 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Nome da tarefa" id="Z3p-Oq-Feb">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationNameCell" rowHeight="44" id="QbL-yb-e3X" customClass="evaluationNameCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QbL-yb-e3X" id="Ttr-dZ-Bep">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome da tarefa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-gW-iLU">
+                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QbL-yb-e3X" id="fqw-pk-tHb"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yMc-gW-iLU" firstAttribute="leading" secondItem="Ttr-dZ-Bep" secondAttribute="leading" constant="25" id="H62-BW-lNy"/>
+                                                <constraint firstAttribute="trailing" secondItem="yMc-gW-iLU" secondAttribute="trailing" constant="25" id="RwB-qE-thX"/>
+                                                <constraint firstItem="yMc-gW-iLU" firstAttribute="top" secondItem="Ttr-dZ-Bep" secondAttribute="top" constant="7" id="eya-5j-kk9"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="H62-BW-lNy"/>
+                                                    <exclude reference="RwB-qE-thX"/>
+                                                    <exclude reference="eya-5j-kk9"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="H62-BW-lNy"/>
+                                                    <include reference="RwB-qE-thX"/>
+                                                    <include reference="eya-5j-kk9"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="evaluationName" destination="yMc-gW-iLU" id="af1-G5-T6T"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Tipo tarefa" id="2B7-4S-Af7">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="evaluationTypeCell" rowHeight="195" id="p7O-cP-FNb" customClass="evaluationTypeCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p7O-cP-FNb" id="5oJ-td-hJ5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOr-8J-w3f">
+                                                    <rect key="frame" x="0.0" y="-14" width="600" height="162"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="p7O-cP-FNb" id="yIL-gT-NxM"/>
+                                                        <outlet property="delegate" destination="p7O-cP-FNb" id="xgU-8r-Y6r"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WOr-8J-w3f" firstAttribute="top" secondItem="5oJ-td-hJ5" secondAttribute="top" constant="12" id="BeT-02-ZPI"/>
+                                                <constraint firstItem="WOr-8J-w3f" firstAttribute="leading" secondItem="5oJ-td-hJ5" secondAttribute="leading" constant="72" id="OpC-2Y-uYy"/>
+                                                <constraint firstAttribute="trailing" secondItem="WOr-8J-w3f" secondAttribute="trailing" constant="72" id="Rhm-uH-rPy"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="BeT-02-ZPI"/>
+                                                    <exclude reference="OpC-2Y-uYy"/>
+                                                    <exclude reference="Rhm-uH-rPy"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="BeT-02-ZPI"/>
+                                                    <include reference="OpC-2Y-uYy"/>
+                                                    <include reference="Rhm-uH-rPy"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pickerView" destination="WOr-8J-w3f" id="r6m-Ys-qVO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Data" id="cy8-Ld-R45">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationDateCell" rowHeight="232" id="zSj-dV-FdU" customClass="evaluationDateCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zSj-dV-FdU" id="7tk-Eu-eyx">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gJw-sp-FX2">
+                                                    <rect key="frame" x="29" y="26" width="543" height="122"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="455233950.74443799">
+                                                        <!--2015-06-05 21:52:30 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gJw-sp-FX2" firstAttribute="top" secondItem="7tk-Eu-eyx" secondAttribute="top" constant="36" id="c9q-nG-HVo"/>
+                                                <constraint firstItem="gJw-sp-FX2" firstAttribute="leading" secondItem="7tk-Eu-eyx" secondAttribute="leading" constant="16" id="dLB-yx-qvL"/>
+                                                <constraint firstAttribute="trailing" secondItem="gJw-sp-FX2" secondAttribute="trailing" constant="15" id="gq1-AU-xKU"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="c9q-nG-HVo"/>
+                                                    <exclude reference="dLB-yx-qvL"/>
+                                                    <exclude reference="gq1-AU-xKU"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="c9q-nG-HVo"/>
+                                                    <include reference="dLB-yx-qvL"/>
+                                                    <include reference="gq1-AU-xKU"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="gJw-sp-FX2" id="Fez-TC-mYj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="7bK-jq-Zjz" id="Gho-Na-rnu"/>
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Cadastro Tarefas" id="Zdf-7t-Un8"/>
+                    <connections>
+                        <outlet property="registerTableView" destination="r7i-6Z-zg0" id="cBy-Wb-bCc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="-630"/>
+            <point key="canvasLocation" x="708" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -129,7 +235,4 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
-    </inferredMetricsTieBreakers>
 </document>

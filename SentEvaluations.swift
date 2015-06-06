@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class SentEvaluations: NSManagedObject {
+class Evaluated: NSManagedObject {
 
     @NSManaged var evaluatedObject: AnyObject
 
