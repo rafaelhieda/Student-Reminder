@@ -11,10 +11,10 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    let manager = CoreDataManager.sharedInstance
     @IBOutlet var registerTableView: UITableView!
     override func viewDidLoad() {
         self.view.userInteractionEnabled = true
-//        let manager = CoreDataManager.sharedInstance
 //        manager.insertSubject("Portugues")
 //        manager.selectSubjects()
 //        
@@ -31,7 +31,44 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     
     func insertNewEvaluation() {
-        //implementar
+//        let entityDescription = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext:managedObjectContext!)
+//        
+//        let evaluation = Evaluations(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        //Nome
+        let nameCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! evaluationNameCell
+        let newName = nameCell.evaluationName.text
+        
+        //Tipo
+        let typeCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! evaluationTypeCell
+        let auxRow = typeCell.pickerView.selectedRowInComponent(0)
+        let newType = typeCell.pickerData[auxRow]
+        
+        let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! evaluationDateCell
+        let newDate = dateCell.datePicker.date
+        
+        println(newName)
+        println(newType)
+        println(newDate)
+        
+        manager.insertEvaluations(newName, evalType: newType, evalGrade: 5.0, evalDate: newDate, evalSubject: manager.selectSubjects()[0] as! Subjects)
+        manager.selectEvaluations()
+        
+//        evaluation.type = newType
+//      evaluation.grade = 5
+//        evaluation.date = newDate
+//        evaluation.name = newName
+//        evaluation.subject = Subjects()
+//        
+//        var error: NSError?
+//        
+//        managedObjectContext?.save(&error)
+//        
+//        if let err = error {
+//            println("Fail")
+//        } else {
+//            println("Ok")
+//        }
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

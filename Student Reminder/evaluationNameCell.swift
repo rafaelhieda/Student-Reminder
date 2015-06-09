@@ -10,13 +10,12 @@ import UIKit
 
 class evaluationNameCell: UITableViewCell, UITextFieldDelegate{
 
+    var name = ""
     @IBOutlet weak var evaluationName : UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-    
+        self.name = evaluationName.text
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
