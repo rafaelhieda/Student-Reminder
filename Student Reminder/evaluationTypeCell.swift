@@ -10,6 +10,8 @@ import UIKit
 
 class evaluationTypeCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    
+    
     @IBOutlet weak var pickerView : UIPickerView!
     let pickerData = ["Prova","Trabalho","Seminario"]
         override func awakeFromNib() {

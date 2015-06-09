@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     @IBOutlet var registerTableView: UITableView!
     override func viewDidLoad() {
+        self.view.userInteractionEnabled = true
 //        let manager = CoreDataManager.sharedInstance
 //        manager.insertSubject("Portugues")
 //        manager.selectSubjects()
