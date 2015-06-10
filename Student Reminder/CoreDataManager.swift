@@ -42,7 +42,7 @@ class CoreDataManager: NSObject {
             var grade: AnyObject? = match.valueForKey("grade")
             var subject: AnyObject? = match.valueForKey("subject")
             var date: AnyObject? = match.valueForKey("date")
-            println("Avaliacao")
+            println("--------------")
             println(name)
             println(type)
             println(grade)
@@ -88,7 +88,7 @@ class CoreDataManager: NSObject {
         return objects!
     }
     
-    func selectSubject(subjectName: String) {
+    func selectSubject(subjectName: String)-> Subjects {
         var entity = NSEntityDescription.entityForName("Subjects", inManagedObjectContext: managedObjectContext!)
         var request = NSFetchRequest()
         var predicate = NSPredicate(format: "name = %@",subjectName)
@@ -99,9 +99,13 @@ class CoreDataManager: NSObject {
         if let results = objects {
             for result in results  {
                 println(result.valueForKey("name"))
+                if(result.valueForKey("name")as! String == subjectName) {
+                    return result as! Subjects
+                }
             }
         }
-        
+        //não sei como ajeitar isso exatamente
+        return Subjects()
     }
     
     func insertSubject(subName:String) {

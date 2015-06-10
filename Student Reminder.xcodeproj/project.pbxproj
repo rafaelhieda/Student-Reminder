@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */; };
+		E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */; };
 		E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */; };
 		E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CC91B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld */; };
 		E3D38CCD1B1E22BA00D6C709 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CCC1B1E22BA00D6C709 /* MasterViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationDateCell.swift; sourceTree = "<group>"; };
+		E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSubjectCell.swift; sourceTree = "<group>"; };
 		E3D38CC21B1E22BA00D6C709 /* Student Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D38CC61B1E22BA00D6C709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				E3D38D1D1B2255C300D6C709 /* evaluationNameCell.swift */,
 				E3D38D1F1B225BDA00D6C709 /* evaluationTypeCell.swift */,
 				E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */,
+				E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */,
 				E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */,
 				E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */,
+				E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

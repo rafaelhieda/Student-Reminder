@@ -109,9 +109,58 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Tipo tarefa" id="2B7-4S-Af7">
+                            <tableViewSection headerTitle="Data" id="nDf-Ji-MiN" userLabel="Tipo de tarefa">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="evaluationTypeCell" rowHeight="195" id="p7O-cP-FNb" customClass="evaluationTypeCell" customModule="Student_Reminder" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationTypeCell" rowHeight="44" id="qUF-Jx-C7y" customClass="evaluationTypeCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qUF-Jx-C7y" id="z5W-ha-l2e">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pCV-Gw-0T0">
+                                                    <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                                    <segments>
+                                                        <segment title="Prova"/>
+                                                        <segment title="Second"/>
+                                                        <segment title="Seminario"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pCV-Gw-0T0" firstAttribute="leading" secondItem="z5W-ha-l2e" secondAttribute="leading" constant="8" id="Db6-N9-4KH"/>
+                                                <constraint firstItem="pCV-Gw-0T0" firstAttribute="top" secondItem="z5W-ha-l2e" secondAttribute="top" constant="8" id="Ebj-i7-yxj"/>
+                                                <constraint firstAttribute="trailing" secondItem="pCV-Gw-0T0" secondAttribute="trailing" constant="8" id="KVv-mk-amO"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="pCV-Gw-0T0"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Db6-N9-4KH"/>
+                                                    <exclude reference="Ebj-i7-yxj"/>
+                                                    <exclude reference="KVv-mk-amO"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="pCV-Gw-0T0"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="Db6-N9-4KH"/>
+                                                    <include reference="Ebj-i7-yxj"/>
+                                                    <include reference="KVv-mk-amO"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="typeSegmentedControl" destination="pCV-Gw-0T0" id="p9q-Sl-Ldd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Tipo tarefa" id="2B7-4S-Af7" userLabel="Disciplina">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="evaluationSubjectCell" rowHeight="195" id="p7O-cP-FNb" userLabel="evaluationSubjectCell" customClass="EvaluationSubjectCell" customModule="Student_Reminder" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p7O-cP-FNb" id="5oJ-td-hJ5">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -145,7 +194,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="pickerView" destination="WOr-8J-w3f" id="r6m-Ys-qVO"/>
+                                            <outlet property="evaluationSubjectName" destination="WOr-8J-w3f" id="7jf-0I-bVP"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -204,7 +253,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="-630"/>
+            <point key="canvasLocation" x="661.5" y="-630"/>
         </scene>
         <!--Item-->
         <scene sceneID="r7l-gg-dq7">

@@ -14,6 +14,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     let manager = CoreDataManager.sharedInstance
     @IBOutlet var registerTableView: UITableView!
     override func viewDidLoad() {
+//        self.manager.insertSubject("Portugues")
         self.view.userInteractionEnabled = true
 //        manager.insertSubject("Portugues")
 //        manager.selectSubjects()
@@ -22,7 +23,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 //        manager.selectEvaluations()
     let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
     self.navigationItem.rightBarButtonItem = addButton
-    
     }
     
     
@@ -39,40 +39,39 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let nameCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! evaluationNameCell
         let newName = nameCell.evaluationName.text
         
-        //Tipo
         let typeCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! evaluationTypeCell
-        let auxRow = typeCell.pickerView.selectedRowInComponent(0)
-        let newType = typeCell.pickerData[auxRow]
+        let selectedType = typeCell.segmentName()
         
-        let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! evaluationDateCell
+
+        
+        
+        //Tipo
+        /*
+            retrieves the data from subject cell, then returns the actual persisted object in 
+            core data. Then adds it into a variable to be persisted in the evaluation entity.
+        */
+        //subject
+        let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
+        let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
+        let selectedSubject = subjectCell.pickerData[auxRow]
+        let subject = manager.selectSubject(selectedSubject)
+        
+        //date
+        let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 3)) as! evaluationDateCell
         let newDate = dateCell.datePicker.date
         
         println(newName)
-        println(newType)
+        println(selectedType)
+        println(selectedSubject)
         println(newDate)
         
-        manager.insertEvaluations(newName, evalType: newType, evalGrade: 5.0, evalDate: newDate, evalSubject: manager.selectSubjects()[0] as! Subjects)
+        manager.insertEvaluations(newName, evalType: selectedType, evalGrade: 0.0, evalDate: newDate, evalSubject: subject)
         manager.selectEvaluations()
         
-//        evaluation.type = newType
-//      evaluation.grade = 5
-//        evaluation.date = newDate
-//        evaluation.name = newName
-//        evaluation.subject = Subjects()
-//        
-//        var error: NSError?
-//        
-//        managedObjectContext?.save(&error)
-//        
-//        if let err = error {
-//            println("Fail")
-//        } else {
-//            println("Ok")
-//        }
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        view.endEditing(true)
+        self.registerTableView.endEditing(true)
     }
     
     
@@ -142,14 +141,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 //
 //    // MARK: - Table View
 //
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
-    }
+    
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 3
+//    }
 //
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return 1
-    }
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//       
+//        return 1
+//    }
+    
+    
 
 //    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 //        //        self.configureCell(cell, atIndexPath: indexPath)
@@ -179,7 +181,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
