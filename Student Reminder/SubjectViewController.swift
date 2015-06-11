@@ -8,13 +8,15 @@
 
 import UIKit
 
-class SubjectViewController: UITableViewController,UISearchBarDelegate{
+class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFieldDelegate{
 
     let manager = CoreDataManager.sharedInstance
     var subjectsArray:[Subjects]!
     var subjectNameArray:[String]!
     
+    @IBOutlet weak var subjectHeaderView: UIView!
     
+    @IBOutlet weak var subjectNameTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +63,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate{
     
     
     //#mark group methods
-    @IBAction func saveSubject(sender: AnyObject) {
-    }
-    
+   
     func subjectsName() ->(stringType:[String], subjectsType:[Subjects]) {
         var subjectsName = [String]()
         subjectsArray = manager.selectSubjects() as! [Subjects]
