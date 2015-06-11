@@ -11,6 +11,7 @@ import UIKit
 class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var evaluationSubjectName:UIPickerView!
+
     
     let pickerData = ["Portugues","Matematica","Fisica"]
     override func awakeFromNib() {

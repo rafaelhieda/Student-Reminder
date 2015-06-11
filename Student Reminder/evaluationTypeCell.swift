@@ -8,46 +8,34 @@
 
 import UIKit
 
-class evaluationTypeCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    
-    
-    @IBOutlet weak var pickerView : UIPickerView!
-    let pickerData = ["Prova","Trabalho","Seminario"]
-        override func awakeFromNib() {
+class evaluationTypeCell: UITableViewCell{
+    @IBOutlet weak var typeSegmentedControl:UISegmentedControl!
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
-    func initialize() {
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        
+    func segmentName()->String {
+        if self.typeSegmentedControl.selectedSegmentIndex == 0 {
+            return "Prova"
+        }
+        else if self.typeSegmentedControl.selectedSegmentIndex == 1 {
+            return "Tarefa"
+        }
+        else if self.typeSegmentedControl.selectedSegmentIndex == 2 {
+            return "Seminario"
+        }
+        else {
+            return ""
+        }
     }
-    
-    //MARK: - Delegates and data sources
-    //MARK: Data Sources
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    //MARK: Delegates
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return pickerData[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-    }
 
 
 }

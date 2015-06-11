@@ -14,12 +14,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     let manager = CoreDataManager.sharedInstance
     @IBOutlet var registerTableView: UITableView!
     override func viewDidLoad() {
+        
 //        self.manager.insertSubject("Portugues")
         self.view.userInteractionEnabled = true
-//        manager.insertSubject("Portugues")
-//        manager.selectSubjects()
-//        
-//        manager.insertEvaluations("PF", evalType: "Prova", evalGrade: 9.8, evalDate: NSDate(), evalSubject: manager.selectSubjects()[8] as! Subjects)
+        
+        manager.selectEvaluations()
+
 //        manager.selectEvaluations()
     let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
     self.navigationItem.rightBarButtonItem = addButton
@@ -45,12 +45,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         
         
-        //Tipo
+        //Subject
         /*
             retrieves the data from subject cell, then returns the actual persisted object in 
             core data. Then adds it into a variable to be persisted in the evaluation entity.
         */
-        //subject
         let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
         let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
         let selectedSubject = subjectCell.pickerData[auxRow]
@@ -65,6 +64,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         println(selectedSubject)
         println(newDate)
         
+        /*
+            If the name is empty an AlertController is fired, otherwise, the evaluation/task will be stored in core data.
+        */
         if newName.isEmpty  {
             let alertController = UIAlertController(title: "Student Reminder", message: "Campo nome está vazio! Por favor preencha-o! :)", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.Default, handler: nil))
@@ -73,6 +75,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         else {
             manager.insertEvaluations(newName, evalType: selectedType, evalGrade: 0.0, evalDate: newDate, evalSubject: subject)
             manager.selectEvaluations()
+            
         }
     }
     
