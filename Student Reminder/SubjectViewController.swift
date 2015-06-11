@@ -10,7 +10,7 @@ import UIKit
 
 class SubjectViewController: UITableViewController,UISearchBarDelegate{
 
-    var manager = CoreDataManager.sharedInstance
+    let manager = CoreDataManager.sharedInstance
     var subjectsArray:[Subjects]!
     var subjectNameArray:[String]!
     var isSearchActive:Bool = false

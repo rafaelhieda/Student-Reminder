@@ -8,41 +8,62 @@
 
 import UIKit
 import CoreData
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-
-    var detailItem: AnyObject? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
-
-    func configureView() {
-        // Update the user interface for the detail item.
-//        if let detail: AnyObject = self.detailItem {
-//            if let label = self.detailDescriptionLabel {
-//                label.text = detail.valueForKey("timeStamp")!.description
-//            }
-//        }
-    }
+    let manager = CoreDataManager.sharedInstance
+    var arraySubjects: [String] = []
+    var arrayEvaluations: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
-                let manager = CoreDataManager.sharedInstance
-                manager.insertSubject("Fisica1")
-                manager.insertSubject("Engenharia de Software 2")
+        let manager = CoreDataManager.sharedInstance
+        manager.insertSubject("Fisica1")
+        manager.insertSubject("Engenharia de Software 2")
+    }
+    
+//    MARK: Pegar dados do CoreData
+    
+    func getSubjects(){
+        let subjects = manager.selectSubjects()
+        
+        for AnyObject in subjects{
+            let newSubject = AnyObject as! Subjects
+            arraySubjects.append(newSubject.name)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//    func getEvaluations(){
+//        let evaluationsArray = manager.selectEvaluations()
+//        
+//        for AnyObject in evaluationsArray
+//    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return arraySubjects.count
     }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return arraySubjects[section]
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "tableCell")
+        cell.textLabel?.text = arrayEvaluations[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 
-
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 
+    }
 }
 

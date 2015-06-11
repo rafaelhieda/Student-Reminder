@@ -10,12 +10,10 @@ import UIKit
 
 class evaluationNameCell: UITableViewCell, UITextFieldDelegate{
 
-    var name = ""
     @IBOutlet weak var evaluationName : UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.name = evaluationName.text
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -23,5 +21,6 @@ class evaluationNameCell: UITableViewCell, UITextFieldDelegate{
 
         // Configure the view for the selected state
     }
-
+    
+    
 }
