@@ -62,7 +62,6 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate{
     
     //#mark group methods
     @IBAction func saveSubject(sender: AnyObject) {
-       let cell = 
     }
     
     func subjectsName() ->(stringType:[String], subjectsType:[Subjects]) {
