@@ -13,12 +13,8 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate{
     let manager = CoreDataManager.sharedInstance
     var subjectsArray:[Subjects]!
     var subjectNameArray:[String]!
-    var isSearchActive:Bool = false
-    var filteredSearch:[String] = []
-    @IBOutlet weak var searchBar:UISearchBar!
-
     
-    @IBOutlet weak var searchHeaderView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,48 +50,9 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate{
         
     }
     
-    //#pragma UISearchBarDelegate methods
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        isSearchActive = true
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        isSearchActive = false
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchBarText = searchBar.text
-        if (searchBarText?.isEmpty != nil) {
-            isSearchActive = false
-            tableView.reloadData()
-        }
-        else {
-            isSearchActive = true
-            filteredSearch.removeAll(keepCapacity: true)
-            for index in 1 ... subjectNameArray.count {
-                var currentString = filteredSearch[index]
-                if currentString.lowercaseString.rangeOfString(searchText.lowercaseString) != nil {
-                    filteredSearch.append(currentString)
-                }
-            }
-            tableView.reloadData()
-        }
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {        
-        
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("subjectCell", forIndexPath: indexPath) as! UITableViewCell
             cell.textLabel?.text = subjectNameArray[indexPath.row]
-
             return cell
     }
     
@@ -105,7 +62,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate{
     
     //#mark group methods
     @IBAction func saveSubject(sender: AnyObject) {
-       
+       let cell = 
     }
     
     func subjectsName() ->(stringType:[String], subjectsType:[Subjects]) {

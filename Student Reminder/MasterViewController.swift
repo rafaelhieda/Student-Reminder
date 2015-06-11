@@ -19,8 +19,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.view.userInteractionEnabled = true
         
         manager.selectEvaluations()
-
-//        manager.selectEvaluations()
     let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
     self.navigationItem.rightBarButtonItem = addButton
     }
@@ -81,6 +79,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.registerTableView.endEditing(true)
+        self.registerTableView.resignFirstResponder()
+        resignFirstResponder()
     }
     
     
