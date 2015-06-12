@@ -15,8 +15,10 @@ class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
     
     var pickerData = []
     override func awakeFromNib() {
+       
         super.awakeFromNib()
         self.initialize()
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadSubjectPicker", name: "teste", object: nil)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -28,6 +30,10 @@ class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
     func initialize() {
         evaluationSubjectName.dataSource = self
         evaluationSubjectName.delegate = self
+        pickerData = subjectsName().stringType
+    }
+    
+    func reloadSubjectPicker() {
         pickerData = subjectsName().stringType
     }
     

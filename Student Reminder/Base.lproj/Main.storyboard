@@ -128,7 +128,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Data" id="nDf-Ji-MiN" userLabel="Tipo de tarefa">
+                            <tableViewSection headerTitle="Tipo de tarefa" id="nDf-Ji-MiN" userLabel="Tipo de tarefa">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationTypeCell" rowHeight="44" id="qUF-Jx-C7y" customClass="evaluationTypeCell" customModule="Student_Reminder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -177,7 +177,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Tipo tarefa" id="2B7-4S-Af7" userLabel="Disciplina">
+                            <tableViewSection headerTitle="Disciplinas" id="2B7-4S-Af7" userLabel="Disciplina">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="evaluationSubjectCell" rowHeight="195" id="p7O-cP-FNb" userLabel="evaluationSubjectCell" customClass="EvaluationSubjectCell" customModule="Student_Reminder" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -370,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" textLabel="6e6-nN-T9N" detailTextLabel="qh4-fR-dhC" style="IBUITableViewCellStyleSubtitle" id="jDD-8W-CBg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectCell" textLabel="6e6-nN-T9N" style="IBUITableViewCellStyleDefault" id="jDD-8W-CBg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jDD-8W-CBg" id="g6E-Xw-HkP">
@@ -383,15 +383,6 @@
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            </variation>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qh4-fR-dhC">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             </variation>
                                         </label>
                                     </subviews>

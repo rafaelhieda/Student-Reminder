@@ -13,20 +13,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     let manager = CoreDataManager.sharedInstance
     @IBOutlet var registerTableView: UITableView!
+    var detailViewController: DetailViewController? = nil
+    var managedObjectContext: NSManagedObjectContext? = nil
+    var subjectCell: EvaluationSubjectCell!
+    
+    
     override func viewDidLoad() {
-        
 //        self.manager.insertSubject("Portugues")
         self.view.userInteractionEnabled = true
-        
         manager.selectEvaluations()
     let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
     self.navigationItem.rightBarButtonItem = addButton
     }
     
+    override func viewWillAppear(animated: Bool) {
+    }
     
+    override func viewDidAppear(animated: Bool) {
+        registerTableView.reloadData()
+        
+    }
     
-    var detailViewController: DetailViewController? = nil
-    var managedObjectContext: NSManagedObjectContext? = nil
+   
     
     func insertNewEvaluation() {
 //        let entityDescription = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext:managedObjectContext!)
@@ -39,16 +47,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let typeCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! evaluationTypeCell
         let selectedType = typeCell.segmentName()
-        
-
-        
-        
         //Subject
         /*
             retrieves the data from subject cell, then returns the actual persisted object in 
             core data. Then adds it into a variable to be persisted in the evaluation entity.
         */
-        let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
+        subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
+        
         let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
         let selectedSubject = subjectCell.pickerData[auxRow]
         let subject = manager.selectSubject(selectedSubject as! String)
@@ -75,6 +80,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             manager.selectEvaluations()
             
         }
+    }
+    
+    func notAvailableView() {
+        var notAvaliableView = UIView(frame: self.registerTableView.frame)
+        notAvaliableView.backgroundColor = UIColor.blackColor()
+        var label = UILabel(frame: CGRectMake(self.registerTableView.frame.midX, self.registerTableView.frame.midY, 50, 50))
+        label.text = "testando"
+        label.textColor = UIColor.blackColor()
+        notAvaliableView.addSubview(label)
+        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

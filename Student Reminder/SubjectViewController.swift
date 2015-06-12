@@ -24,7 +24,9 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+       
     }
+    
     
     override func viewDidAppear(animated: Bool) {
     }
@@ -81,10 +83,19 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
     @IBAction func saveSubject(sender: AnyObject) {
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SubjectCell
         println(cell.subjectNameTF.text)
-        manager.insertSubject(cell.subjectNameTF.text)
-        subjectNameArray = subjectsName().stringType
-        tableView.reloadData()
-        
+        if cell.subjectNameTF.text.isEmpty {
+            let alertController = UIAlertController(title: "Não Permitido!", message: "Insira o nome de uma disciplina!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Voltar", style: UIAlertActionStyle.Cancel, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        else {
+            manager.insertSubject(cell.subjectNameTF.text)
+            subjectNameArray = subjectsName().stringType
+            tableView.reloadData()
+            cell.subjectNameTF.text = ""
+            NSNotificationCenter.defaultCenter().postNotificationName("teste", object: nil)
+
+        }
     }
     
     
