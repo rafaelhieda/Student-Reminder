@@ -24,6 +24,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         manager.selectEvaluations()
     let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
     self.navigationItem.rightBarButtonItem = addButton
+        
+        var localNotification = UILocalNotification()
+        localNotification.alertAction = "TESTE NOTIFICATION"
+        localNotification.alertBody = "BODY AQUI ------------------------------------------------------------------------------------------------------------V---------------------------V---------------------------VVVVVVV---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
     override func viewWillAppear(animated: Bool) {
