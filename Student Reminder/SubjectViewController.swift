@@ -14,9 +14,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
     var subjectsArray:[Subjects]!
     var subjectNameArray:[String]!
     
-    @IBOutlet weak var subjectHeaderView: UIView!
-    
-    @IBOutlet weak var subjectNameTF: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,22 +42,50 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
+        else {
             return manager.selectSubjects().count
-        
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("textFieldCell", forIndexPath: indexPath) as! UITableViewCell
+            return cell
+        }
+        else {
             let cell = tableView.dequeueReusableCellWithIdentifier("subjectCell", forIndexPath: indexPath) as! UITableViewCell
             cell.textLabel?.text = subjectNameArray[indexPath.row]
             return cell
+        }
     }
     
     
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Nome da Disciplina"
+        }
+        else {
+            return "Disciplinas Cadastradas"
+        }
+    }
 
+    @IBAction func saveSubject(sender: AnyObject) {
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SubjectCell
+        println(cell.subjectNameTF.text)
+        manager.insertSubject(cell.subjectNameTF.text)
+        subjectNameArray = subjectsName().stringType
+        tableView.reloadData()
+        
+    }
     
     
     //#mark group methods

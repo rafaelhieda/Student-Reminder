@@ -11,9 +11,9 @@ import UIKit
 class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var evaluationSubjectName:UIPickerView!
-
+    let manager = CoreDataManager.sharedInstance
     
-    let pickerData = ["Portugues","Matematica","Fisica"]
+    var pickerData = []
     override func awakeFromNib() {
         super.awakeFromNib()
         self.initialize()
@@ -28,7 +28,7 @@ class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
     func initialize() {
         evaluationSubjectName.dataSource = self
         evaluationSubjectName.delegate = self
-        
+        pickerData = subjectsName().stringType
     }
     
     //MARK: - Delegates and data sources
@@ -42,11 +42,20 @@ class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
     
     //MARK: Delegates
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return pickerData[row]
+        return pickerData[row] as! String
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+    }
+    
+    func subjectsName() ->(stringType:[String], subjectsType:[Subjects]) {
+        var subjectsName = [String]()
+        var subjectsArray = manager.selectSubjects() as! [Subjects]
+        for newSubject in subjectsArray {
+            subjectsName.append(newSubject.name)
+        }
+        return (subjectsName,subjectsArray)
     }
 
 

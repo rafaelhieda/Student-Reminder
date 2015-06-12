@@ -51,7 +51,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
         let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
         let selectedSubject = subjectCell.pickerData[auxRow]
-        let subject = manager.selectSubject(selectedSubject)
+        let subject = manager.selectSubject(selectedSubject as! String)
         
         //date
         let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 3)) as! evaluationDateCell
