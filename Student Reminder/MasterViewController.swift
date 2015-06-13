@@ -55,21 +55,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
         
         let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
-        let selectedSubject = subjectCell.pickerData[auxRow]
-        let subject = manager.selectSubject(selectedSubject as! String)
+        let selectedSubject = subjectCell.pickerData[auxRow] as! String
+        let subject = manager.selectSubject(selectedSubject as String)
         
         //date
         let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 3)) as! evaluationDateCell
         let newDate = dateCell.datePicker.date
         
-//        println(newName)
-//        println(selectedType)
-//        println(selectedSubject)
-//        println(newDate)
-        
-        /*
-            If the name is empty an AlertController is fired, otherwise, the evaluation/task will be stored in core data.
-        */
         if newName.isEmpty  {
             let alertController = UIAlertController(title: "Student Reminder", message: "Campo nome está vazio! Por favor preencha-o! :)", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.Default, handler: nil))
@@ -78,6 +70,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         else {
             manager.insertEvaluations(newName, evalType: selectedType, evalGrade: 0.0, evalDate: newDate, evalSubject: subject)
             manager.selectEvaluations()
+            nameCell.evaluationName.text = ""
             
         }
     }

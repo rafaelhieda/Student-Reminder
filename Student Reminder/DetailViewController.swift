@@ -31,6 +31,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.registerNib(UINib(nibName: "EvaluationTableViewCell", bundle: nil), forCellReuseIdentifier: "EvaluationTableViewCell")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
 //    MARK: Pegar dados do CoreData
     
     func getEvaluations(){

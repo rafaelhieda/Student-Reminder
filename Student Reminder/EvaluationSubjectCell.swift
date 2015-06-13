@@ -35,6 +35,7 @@ class EvaluationSubjectCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
     
     func reloadSubjectPicker() {
         pickerData = subjectsName().stringType
+        evaluationSubjectName.reloadAllComponents()
     }
     
     //MARK: - Delegates and data sources
