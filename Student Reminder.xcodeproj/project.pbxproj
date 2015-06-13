@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */; };
+		24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */; };
 		E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */; };
 		E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */; };
 		E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE41B290662005772BC /* SubjectViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationTableViewCell.swift; sourceTree = "<group>"; };
+		24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationDateCell.swift; sourceTree = "<group>"; };
 		E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSubjectCell.swift; sourceTree = "<group>"; };
 		E394ACE41B290662005772BC /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */,
 				E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */,
 				E394AD1C1B2A7CA1005772BC /* SubjectCell.swift */,
+				24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */,
+				24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 				E3D38CD21B1E22BA00D6C709 /* Main.storyboard in Resources */,
 				E3D38CD71B1E22BA00D6C709 /* LaunchScreen.xib in Resources */,
 				E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */,
+				24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +299,7 @@
 				E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */,
 				E394AD1D1B2A7CA1005772BC /* SubjectCell.swift in Sources */,
 				E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */,
+				24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */,
 				E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
 			);

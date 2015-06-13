@@ -22,8 +22,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 //        self.manager.insertSubject("Portugues")
         self.view.userInteractionEnabled = true
         manager.selectEvaluations()
-    let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
-    self.navigationItem.rightBarButtonItem = addButton
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,10 +62,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 3)) as! evaluationDateCell
         let newDate = dateCell.datePicker.date
         
-        println(newName)
-        println(selectedType)
-        println(selectedSubject)
-        println(newDate)
+//        println(newName)
+//        println(selectedType)
+//        println(selectedSubject)
+//        println(newDate)
         
         /*
             If the name is empty an AlertController is fired, otherwise, the evaluation/task will be stored in core data.

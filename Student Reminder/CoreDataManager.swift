@@ -32,24 +32,48 @@ class CoreDataManager: NSObject {
     }
     
     //dependendo da pra colocar em outro metodo
-    func selectEvaluations() {
+    func selectEvaluations() -> [NSManagedObject]{
+        var entity = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext: managedObjectContext!)
+        var request = NSFetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        request.entity = entity
         
-        var results = self.getEntity("Evaluations").entity
-        for result in results {
-            let match = result as! NSManagedObject
-            var name: AnyObject? = match.valueForKey("Name")
-            var type: AnyObject? = match.valueForKey("type")
-            var grade: AnyObject? = match.valueForKey("grade")
-            var subject: AnyObject? = match.valueForKey("subject")
-            var date: AnyObject? = match.valueForKey("date")
-            println("--------------")
-            println(name)
-            println(type)
-            println(grade)
-            println(subject?.name)
-            println(date)
-            
+        request.sortDescriptors = [sortDescriptor]
+        
+        var objects = managedObjectContext?.executeFetchRequest(request, error: &error)
+        var arrayReturn: [NSManagedObject] = []
+        
+        if let results = objects{
+            for result in results {
+                let match = result as! NSManagedObject
+                let nome:AnyObject = match.valueForKey("name")!
+                var date: AnyObject = match.valueForKey("date")!
+                println(nome)
+                println(date)
+                println("---XXXX----XXXX----XXXX----XXXX")
+                
+                arrayReturn.append(match)
+            }
         }
+        
+        return arrayReturn
+        
+//        var results = self.getEntity("Evaluations").entity
+//        for result in results {
+//            let match = result as! NSManagedObject
+//            var name: AnyObject? = match.valueForKey("Name")
+//            var type: AnyObject? = match.valueForKey("type")
+//            var grade: AnyObject? = match.valueForKey("grade")
+//            var subject: AnyObject? = match.valueForKey("subject")
+//            var date: AnyObject? = match.valueForKey("date")
+//            println("--------------")
+//            println(name)
+//            println(type)
+//            println(grade)
+//            println(subject?.name)
+//            println(date)
+//            
+//        }
     }
     
     func insertEvaluations(evalName:String, evalType:String, evalGrade:Float, evalDate: NSDate, evalSubject:Subjects) {
@@ -85,6 +109,7 @@ class CoreDataManager: NSObject {
                 
             }
         }
+
         return objects!
     }
     

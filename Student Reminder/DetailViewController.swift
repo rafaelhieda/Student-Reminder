@@ -14,45 +14,42 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
     let manager = CoreDataManager.sharedInstance
-    var arraySubjects: [String] = []
-    var arrayEvaluations: [String] = []
-
+    var arrayEvaluations: [Evaluations] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         let manager = CoreDataManager.sharedInstance
-        manager.insertSubject("Fisica1")
-        manager.insertSubject("Engenharia de Software 2")
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        self.getEvaluations()
+        
+//        manager.insertSubject("Fisica1")
+//        manager.insertSubject("Engenharia de Software 2")
+        
+        tableView.registerNib(UINib(nibName: "EvaluationTableViewCell", bundle: nil), forCellReuseIdentifier: "EvaluationTableViewCell")
     }
     
 //    MARK: Pegar dados do CoreData
     
-    func getSubjects(){
-        let subjects = manager.selectSubjects()
+    func getEvaluations(){
+        let evals:[NSManagedObject] = manager.selectEvaluations()
         
-        for AnyObject in subjects{
-            let newSubject = AnyObject as! Subjects
-            arraySubjects.append(newSubject.name)
+        for eval in evals{
+            arrayEvaluations.append(eval as! Evaluations)
+            println("Eval")
         }
     }
 
-//    func getEvaluations(){
-//        let evaluationsArray = manager.selectEvaluations()
-//        
-//        for AnyObject in evaluationsArray
-//    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return arraySubjects.count
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return arraySubjects[section]
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "tableCell")
-        cell.textLabel?.text = arrayEvaluations[indexPath.row]
+        
+         let cell = tableView.dequeueReusableCellWithIdentifier("EvaluationTableViewCell", forIndexPath: indexPath) as! EvaluationTableViewCell
+        
+        let evaluation = arrayEvaluations[indexPath.row]
+        cell.setEvaluation(evaluation)
+        
+        println("celula")
         
         return cell
     }
@@ -61,9 +58,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return arrayEvaluations.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
     }
 }
 
