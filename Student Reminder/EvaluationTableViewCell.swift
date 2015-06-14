@@ -10,6 +10,7 @@ import UIKit
 
 class EvaluationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var hora: UILabel!
     @IBOutlet weak var data: UILabel!
     @IBOutlet weak var tipo: UILabel!
     @IBOutlet weak var nome: UILabel!
@@ -34,5 +35,9 @@ class EvaluationTableViewCell: UITableViewCell {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         data.text = dateFormatter.stringFromDate(evaluation.date)
+        
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        hora.text = timeFormatter.stringFromDate(evaluation.date)
     }
 }

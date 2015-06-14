@@ -21,10 +21,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
 //        self.manager.insertSubject("Portugues")
 //        self.manager.insertSubject("Ingles")
+//        self.manager.insertSubject("Geografia")
         self.view.userInteractionEnabled = true
         manager.selectEvaluations()
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
         self.navigationItem.rightBarButtonItem = addButton
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,7 +37,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func viewDidAppear(animated: Bool) {
         registerTableView.reloadData()
-        
     }
     
    
@@ -86,11 +90,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.registerTableView.endEditing(true)
-        self.registerTableView.resignFirstResponder()
-        resignFirstResponder()
+    func DismissKeyboard(){
+        view.endEditing(true)
     }
+    
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+////        self.registerTableView.endEditing(true)
+////        self.registerTableView.resignFirstResponder()
+//        let nameCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! evaluationNameCell
+//        nameCell.evaluationName.resignFirstResponder()
+//        resignFirstResponder()
+//        
+//        println("a")
+//    }
     
     
 //

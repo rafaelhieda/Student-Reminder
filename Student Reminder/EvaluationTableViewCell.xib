@@ -38,6 +38,12 @@
                         <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hora" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOm-qA-R3v">
+                        <rect key="frame" x="8" y="78" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="12I-oQ-Ad4" secondAttribute="trailing" id="0pA-1Z-5G9"/>
@@ -53,12 +59,14 @@
                     <constraint firstItem="0YQ-BX-4Lh" firstAttribute="leading" secondItem="Jfy-Bp-EL4" secondAttribute="trailing" constant="20" id="S9t-EE-9N2"/>
                     <constraint firstItem="0YQ-BX-4Lh" firstAttribute="top" secondItem="12I-oQ-Ad4" secondAttribute="bottom" constant="14" id="SVe-5w-x4N"/>
                     <constraint firstItem="9ED-Yn-1Oi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="XqI-xO-c6d"/>
+                    <constraint firstItem="hOm-qA-R3v" firstAttribute="leading" secondItem="9ED-Yn-1Oi" secondAttribute="leading" id="Zj0-OX-2ga"/>
                     <constraint firstItem="9ED-Yn-1Oi" firstAttribute="bottom" secondItem="0YQ-BX-4Lh" secondAttribute="bottom" id="hDi-IV-vhh"/>
                     <constraint firstItem="9ED-Yn-1Oi" firstAttribute="leading" secondItem="0YQ-BX-4Lh" secondAttribute="trailing" constant="20" id="i63-8j-Kfl"/>
                     <constraint firstItem="0YQ-BX-4Lh" firstAttribute="bottom" secondItem="9ED-Yn-1Oi" secondAttribute="bottom" id="mo8-bF-oXB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9ED-Yn-1Oi" secondAttribute="trailing" constant="14" id="n3D-KJ-eLX"/>
                     <constraint firstAttribute="centerX" secondItem="0YQ-BX-4Lh" secondAttribute="centerX" id="pwU-Pp-VGv"/>
                     <constraint firstItem="9ED-Yn-1Oi" firstAttribute="bottom" secondItem="12I-oQ-Ad4" secondAttribute="bottom" id="ud0-0O-DWF"/>
+                    <constraint firstItem="hOm-qA-R3v" firstAttribute="top" secondItem="9ED-Yn-1Oi" secondAttribute="bottom" constant="10" id="xEr-8r-ZBZ"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -79,6 +87,7 @@
             <connections>
                 <outlet property="data" destination="9ED-Yn-1Oi" id="Cm1-Jc-Ktn"/>
                 <outlet property="disciplina" destination="12I-oQ-Ad4" id="uzR-2k-HER"/>
+                <outlet property="hora" destination="hOm-qA-R3v" id="4xF-N8-BwF"/>
                 <outlet property="nome" destination="Jfy-Bp-EL4" id="cvE-os-LS0"/>
                 <outlet property="tipo" destination="0YQ-BX-4Lh" id="ohC-YT-dv7"/>
             </connections>
