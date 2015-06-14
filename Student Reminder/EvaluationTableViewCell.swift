@@ -30,7 +30,9 @@ class EvaluationTableViewCell: UITableViewCell {
         disciplina.text = evaluation.subject.name
         tipo.text = evaluation.type
         nome.text = evaluation.name
-        data.text = "\(evaluation.date)"
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        data.text = dateFormatter.stringFromDate(evaluation.date)
     }
-    
 }

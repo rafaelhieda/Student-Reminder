@@ -20,6 +20,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func viewDidLoad() {
 //        self.manager.insertSubject("Portugues")
+//        self.manager.insertSubject("Ingles")
         self.view.userInteractionEnabled = true
         manager.selectEvaluations()
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
