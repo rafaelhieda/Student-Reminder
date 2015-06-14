@@ -90,8 +90,12 @@ class CoreDataManager: NSObject {
         newEvaluation.date = evalDate
         newEvaluation.subject = evalSubject
         managedObjectContext?.save(&error)
-        
     }
+    
+    func removeEvaluation(objectToRemove: NSManagedObject){
+        managedObjectContext?.deleteObject(objectToRemove)
+    }
+    
     //acho que podemos até usar em outra classe, e retornar algo nele
     func selectSubjects() -> [AnyObject] {
         var entity = NSEntityDescription.entityForName("Subjects", inManagedObjectContext: managedObjectContext!)
@@ -109,7 +113,7 @@ class CoreDataManager: NSObject {
                 
             }
         }
-
+        
         return objects!
     }
     

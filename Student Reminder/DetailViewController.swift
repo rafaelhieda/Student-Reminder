@@ -14,7 +14,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
     let manager = CoreDataManager.sharedInstance
-    var arrayEvaluations: [Evaluations] = []
+    var arrayEvaluations: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +24,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         
         self.getEvaluations()
-        
-//        manager.insertSubject("Fisica1")
-//        manager.insertSubject("Engenharia de Software 2")
         
         tableView.registerNib(UINib(nibName: "EvaluationTableViewCell", bundle: nil), forCellReuseIdentifier: "EvaluationTableViewCell")
     }
@@ -38,19 +35,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //    MARK: Pegar dados do CoreData
     
     func getEvaluations(){
-        let evals:[NSManagedObject] = manager.selectEvaluations()
-        
-        for eval in evals{
-            arrayEvaluations.append(eval as! Evaluations)
-            println("Eval")
-        }
+        arrayEvaluations = manager.selectEvaluations()
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
          let cell = tableView.dequeueReusableCellWithIdentifier("EvaluationTableViewCell", forIndexPath: indexPath) as! EvaluationTableViewCell
         
-        let evaluation = arrayEvaluations[indexPath.row]
+        let evaluation = arrayEvaluations[indexPath.row] as! Evaluations
         cell.setEvaluation(evaluation)
         
         println("celula")
@@ -72,7 +64,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            //remover no core data
+            manager.removeEvaluation(arrayEvaluations[indexPath.row])
             arrayEvaluations.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
