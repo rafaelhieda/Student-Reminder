@@ -38,15 +38,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         arrayEvaluations = manager.selectEvaluations()
     }
 
+//    MARK: TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
          let cell = tableView.dequeueReusableCellWithIdentifier("EvaluationTableViewCell", forIndexPath: indexPath) as! EvaluationTableViewCell
         
         let evaluation = arrayEvaluations[indexPath.row] as! Evaluations
         cell.setEvaluation(evaluation)
-        
-        println("celula")
-        
+
         return cell
     }
     

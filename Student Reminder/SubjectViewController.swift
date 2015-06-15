@@ -19,6 +19,9 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -69,8 +72,6 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         }
     }
     
-    
-    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Nome da Disciplina"
@@ -79,10 +80,16 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
             return "Disciplinas Cadastradas"
         }
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        manager.removeSubject(subjectsArray[indexPath.row])
+        self.subjectsArray.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
 
     @IBAction func saveSubject(sender: AnyObject) {
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SubjectCell
-        println(cell.subjectNameTF.text)
+//        println(cell.subjectNameTF.text)
         if cell.subjectNameTF.text.isEmpty {
             let alertController = UIAlertController(title: "Não Permitido!", message: "Insira o nome de uma disciplina!", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Voltar", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -110,9 +117,9 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         return (subjectsName,subjectsArray)
     }
     
-
- 
- 
+    func DismissKeyboard(){
+        view.endEditing(true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

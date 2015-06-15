@@ -48,9 +48,6 @@ class CoreDataManager: NSObject {
                 let match = result as! NSManagedObject
                 let nome:AnyObject = match.valueForKey("name")!
                 var date: AnyObject = match.valueForKey("date")!
-                println(nome)
-                println(date)
-                println("---XXXX----XXXX----XXXX----XXXX")
                 
                 arrayReturn.append(match)
             }
@@ -94,6 +91,7 @@ class CoreDataManager: NSObject {
     
     func removeEvaluation(objectToRemove: NSManagedObject){
         managedObjectContext?.deleteObject(objectToRemove)
+        managedObjectContext?.save(&error)
     }
     
     //acho que podemos até usar em outra classe, e retornar algo nele
@@ -104,15 +102,14 @@ class CoreDataManager: NSObject {
         
         var objects = managedObjectContext?.executeFetchRequest(request, error: &error)
         
-        if let results = objects
-        {
-            for result in results {
-                let match = result as! NSManagedObject
-                var name: AnyObject? = match.valueForKey("name")
-                println(name)
-                
-            }
-        }
+//        if let results = objects
+//        {
+//            for result in results {
+//                let match = result as! NSManagedObject
+//                var name: AnyObject? = match.valueForKey("name")
+//                println(name)
+//            }
+//        }
         
         return objects!
     }
@@ -127,7 +124,7 @@ class CoreDataManager: NSObject {
         var objects = managedObjectContext?.executeFetchRequest(request, error: &error)
         if let results = objects {
             for result in results  {
-                println(result.valueForKey("name"))
+//                println(result.valueForKey("name"))
                 if(result.valueForKey("name")as! String == subjectName) {
                     return result as! Subjects
                 }
@@ -147,8 +144,40 @@ class CoreDataManager: NSObject {
         
         newSubject.setValue(subName, forKey: "name")
         managedObjectContext?.save(&error)
-        
     }
     
+    func removeSubject(objectToRemove: NSManagedObject){
+        managedObjectContext?.deleteObject(objectToRemove)
+        managedObjectContext?.save(&error)
+    }
+    
+    func debug(){
+        let evals = self.selectEvaluations()
+        let subjects  = self.selectSubjects() as! [Subjects]
+        
+        println("EVALUATIONS")
+        
+        for eval in evals{
+            let newEval = eval as! Evaluations
+            println(newEval.name)
+            println(newEval.type)
+            println(newEval.subject.name)
+            
+            let formatt = NSDateFormatter()
+            formatt.dateStyle = NSDateFormatterStyle.ShortStyle
+            formatt.timeStyle = NSDateFormatterStyle.ShortStyle
+            println(formatt.stringFromDate(newEval.date))
+            
+            println("")
+        }
+        
+        println("X-----X-----X-----X-----X")
+        println("SUBJECTS")
+        
+        for sub in subjects{
+            println(sub.name)
+        }
+        
+    }
 }
 
