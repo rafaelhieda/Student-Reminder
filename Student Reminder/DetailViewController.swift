@@ -44,9 +44,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let evaluation = arrayEvaluations[indexPath.row] as! Evaluations
         cell.setEvaluation(evaluation)
-        
-        println("celula")
-        
+
         return cell
     }
     
