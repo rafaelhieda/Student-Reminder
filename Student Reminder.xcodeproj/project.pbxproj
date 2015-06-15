@@ -13,6 +13,8 @@
 		E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */; };
 		E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE41B290662005772BC /* SubjectViewController.swift */; };
 		E394AD1D1B2A7CA1005772BC /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394AD1C1B2A7CA1005772BC /* SubjectCell.swift */; };
+		E394AD541B2E797B005772BC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394AD531B2E797B005772BC /* NotificationManager.swift */; };
+		E394AD561B2E7CD4005772BC /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394AD551B2E7CD4005772BC /* Notification.swift */; };
 		E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */; };
 		E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CC91B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld */; };
 		E3D38CCD1B1E22BA00D6C709 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CCC1B1E22BA00D6C709 /* MasterViewController.swift */; };
@@ -46,6 +48,8 @@
 		E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSubjectCell.swift; sourceTree = "<group>"; };
 		E394ACE41B290662005772BC /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
 		E394AD1C1B2A7CA1005772BC /* SubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		E394AD531B2E797B005772BC /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E394AD551B2E7CD4005772BC /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E3D38CC21B1E22BA00D6C709 /* Student Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D38CC61B1E22BA00D6C709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */,
+				E394AD531B2E797B005772BC /* NotificationManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		E3D38CEF1B1E359C00D6C709 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				E394AD551B2E7CD4005772BC /* Notification.swift */,
 				E3D38D121B1EBA2000D6C709 /* Subjects.swift */,
 				E3D38D131B1EBA2000D6C709 /* Evaluations.swift */,
 				E3D38D141B1EBA2000D6C709 /* SentEvaluations.swift */,
@@ -293,6 +299,7 @@
 				E3D38D201B225BDA00D6C709 /* evaluationTypeCell.swift in Sources */,
 				E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */,
 				E3D38D1E1B2255C300D6C709 /* evaluationNameCell.swift in Sources */,
+				E394AD541B2E797B005772BC /* NotificationManager.swift in Sources */,
 				E3D38CCD1B1E22BA00D6C709 /* MasterViewController.swift in Sources */,
 				E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */,
 				E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */,
@@ -302,6 +309,7 @@
 				24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */,
 				E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
+				E394AD561B2E7CD4005772BC /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

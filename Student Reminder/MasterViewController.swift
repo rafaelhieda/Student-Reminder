@@ -78,6 +78,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             nameCell.evaluationName.text = ""
             
         }
+        
+        var notificationManager = NotificationManager.sharedInstance
+        notificationManager.cancelAllNotifications()
+        notificationManager.filterNotifications()
     }
     
     func notAvailableView() {

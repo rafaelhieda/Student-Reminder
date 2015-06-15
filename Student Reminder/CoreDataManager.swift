@@ -150,5 +150,77 @@ class CoreDataManager: NSObject {
         
     }
     
+    
+    func insertNotification(addNotification:UILocalNotification) {
+        var entity = NSEntityDescription.entityForName("Notification", inManagedObjectContext: managedObjectContext!)
+        
+        var request = NSFetchRequest()
+        request.entity = entity
+        
+        var newNotification: AnyObject = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: managedObjectContext!)
+        
+        newNotification.setValue(addNotification, forKey: "notification")
+        managedObjectContext?.save(&error)
+        
+    }
+    
+    func selectNotification()->[AnyObject] {
+        var entity = NSEntityDescription.entityForName("Notification", inManagedObjectContext: managedObjectContext!)
+        
+        var request = NSFetchRequest()
+        request.entity = entity
+        
+        var fetchedObjects = managedObjectContext?.executeFetchRequest(request, error: &error)
+        
+        return fetchedObjects!
+        
+    }
+    
+    
+    
+    func selectEvaluationDates() -> [NSDate] {
+        var entity = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext: managedObjectContext!)
+        var request = NSFetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        request.entity = entity
+        
+        request.sortDescriptors = [sortDescriptor]
+        
+        var objects = managedObjectContext?.executeFetchRequest(request, error: &error)
+        var arrayReturn: [NSDate] = []
+        
+        if let results = objects{
+            for result in results {
+                let match = result as! NSManagedObject
+                var date: AnyObject = match.valueForKey("date")!
+                println(date)
+                println("---XXXX----XXXX----XXXX----XXXX")
+                
+                arrayReturn.append(date as! NSDate)
+            }
+        }
+        return arrayReturn
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
 }
 

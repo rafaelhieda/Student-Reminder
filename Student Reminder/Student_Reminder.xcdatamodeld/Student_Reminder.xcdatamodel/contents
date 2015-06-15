@@ -10,12 +10,16 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" syncable="YES"/>
     </entity>
+    <entity name="Notification" representedClassName="PRODUCT_MODULE_NAME.Notification" syncable="YES">
+        <attribute name="notification" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="Subjects" representedClassName="Student_Reminder.Subjects" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Evaluated" positionX="-1856" positionY="-5196" width="128" height="60"/>
         <element name="Evaluations" positionX="-1845" positionY="-5458" width="162" height="118"/>
         <element name="Subjects" positionX="-2169" positionY="-5679" width="128" height="58"/>
-        <element name="Evaluated" positionX="-1856" positionY="-5196" width="128" height="58"/>
+        <element name="Notification" positionX="-1989" positionY="-5526" width="128" height="60"/>
     </elements>
 </model>
