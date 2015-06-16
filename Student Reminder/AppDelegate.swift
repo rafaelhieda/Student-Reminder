@@ -19,18 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Override point for customization after application launch.
         
         self.userDefaultsConfig()
-        
-//        let splitViewController = self.window!.rootViewController as! UISplitViewController
-//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-//        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-//        splitViewController.delegate = self
-//
-//        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-//        let controller = masterNavigationController.topViewController as! MasterViewController
 
-//        controller.managedObjectContext = self.managedObjectContext
-//        let tabBarController = self.window?.rootViewController as! UITabBarController
-        
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound |
             UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
         

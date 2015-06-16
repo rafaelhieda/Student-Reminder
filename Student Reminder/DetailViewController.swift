@@ -13,20 +13,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var myNewTime: UIDatePicker!
+    
+    @IBOutlet weak var editButton: UIBarButtonItem!
 
     let pref = NSUserDefaults()
     let manager = CoreDataManager.sharedInstance
     let notificationManager = NotificationManager.sharedInstance
     var arrayEvaluations: [NSManagedObject] = []
-    var editButton = UIBarButtonItem()
     
+//    MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        let manager = CoreDataManager.sharedInstance
-        
-        editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editEvaluation")
-        self.navigationItem.rightBarButtonItem = editButton
-        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -40,10 +37,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
         
         self.myNewTime.date = pref.objectForKey("alarm") as! NSDate
+        
+        self.editButton.enabled = false
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.editButton.enabled = false
+        
     }
     
     @IBAction func hourChanged(sender: AnyObject) {
@@ -55,11 +54,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 //    MARK: Pegar dados do CoreData
-    
     func getEvaluations(){
         arrayEvaluations = manager.selectEvaluations()
     }
-
+    
+//    MARK: TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
          let cell = tableView.dequeueReusableCellWithIdentifier("EvaluationTableViewCell", forIndexPath: indexPath) as! EvaluationTableViewCell
@@ -70,16 +69,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Tarefas Agendadas"
-//    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayEvaluations.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 110
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -87,6 +82,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             manager.removeEvaluation(arrayEvaluations[indexPath.row])
             arrayEvaluations.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            notificationManager.reloadNotifications()
         }
     }
     
@@ -98,9 +94,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.editButton.enabled = false
     }
     
-    func editEvaluation(){
-        let editView = MasterViewController()
-        self.navigationController?.pushViewController(editView, animated: true)
+    @IBAction func editEval(sender: AnyObject) {
     }
 }
 

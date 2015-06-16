@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24B62DB21B2FEA640055DB89 /* RegistryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */; };
+		24B62DB51B2FED230055DB89 /* RegistryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62DB31B2FED230055DB89 /* RegistryTableViewCell.swift */; };
+		24B62DB61B2FED230055DB89 /* RegistryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */; };
 		24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */; };
 		24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */; };
 		E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryViewController.swift; sourceTree = "<group>"; };
+		24B62DB31B2FED230055DB89 /* RegistryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryTableViewCell.swift; sourceTree = "<group>"; };
+		24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistryTableViewCell.xib; sourceTree = "<group>"; };
 		24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationTableViewCell.xib; sourceTree = "<group>"; };
 		E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationDateCell.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 				E3D38CCC1B1E22BA00D6C709 /* MasterViewController.swift */,
 				E394ACE41B290662005772BC /* SubjectViewController.swift */,
 				E3D38CCE1B1E22BA00D6C709 /* DetailViewController.swift */,
+				24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +195,8 @@
 				E394AD1C1B2A7CA1005772BC /* SubjectCell.swift */,
 				24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */,
 				24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */,
+				24B62DB31B2FED230055DB89 /* RegistryTableViewCell.swift */,
+				24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 				E3D38CD21B1E22BA00D6C709 /* Main.storyboard in Resources */,
 				E3D38CD71B1E22BA00D6C709 /* LaunchScreen.xib in Resources */,
 				E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */,
+				24B62DB61B2FED230055DB89 /* RegistryTableViewCell.xib in Resources */,
 				24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,11 +314,13 @@
 				E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */,
 				E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */,
 				E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */,
+				24B62DB21B2FEA640055DB89 /* RegistryViewController.swift in Sources */,
 				E394AD1D1B2A7CA1005772BC /* SubjectCell.swift in Sources */,
 				E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */,
 				24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */,
 				E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
+				24B62DB51B2FED230055DB89 /* RegistryTableViewCell.swift in Sources */,
 				E394AD561B2E7CD4005772BC /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

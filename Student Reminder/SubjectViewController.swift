@@ -11,10 +11,9 @@ import UIKit
 class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFieldDelegate{
 
     let manager = CoreDataManager.sharedInstance
+    let notificationManager = NotificationManager.sharedInstance
     var subjectsArray:[Subjects]!
     var subjectNameArray:[String]!
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +38,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         subjectNameArray = subjectsName().stringType
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
+// MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -72,8 +66,6 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         }
     }
     
-    
-    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Nome da Disciplina"
@@ -87,26 +79,32 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         manager.removeSubject(subjectsArray[indexPath.row])
         self.subjectsArray.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        notificationManager.reloadNotifications()
     }
 
     @IBAction func saveSubject(sender: AnyObject) {
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! SubjectCell
-//        println(cell.subjectNameTF.text)
         if cell.subjectNameTF.text.isEmpty {
-            let alertController = UIAlertController(title: "Não Permitido!", message: "Insira o nome de uma disciplina!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Voltar", style: UIAlertActionStyle.Cancel, handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.notificateError()
         }
         else {
-            manager.insertSubject(cell.subjectNameTF.text)
-            subjectNameArray = subjectsName().stringType
-            tableView.reloadData()
-            cell.subjectNameTF.text = ""
-            NSNotificationCenter.defaultCenter().postNotificationName("teste", object: nil)
-
+            saveSub(cell)
         }
     }
     
+    func notificateError(){
+        let alertController = UIAlertController(title: "Não Permitido!", message: "Insira o nome de uma disciplina!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Voltar", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func saveSub(cell: SubjectCell){
+        manager.insertSubject(cell.subjectNameTF.text)
+        subjectNameArray = subjectsName().stringType
+        tableView.reloadData()
+        cell.subjectNameTF.text = ""
+        NSNotificationCenter.defaultCenter().postNotificationName("teste", object: nil)
+    }
     
     //#mark group methods
    

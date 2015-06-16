@@ -33,16 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horário das Notificações: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0t-wo-IxG">
-                                <rect key="frame" x="0.0" y="64" width="600" height="20.5"/>
-                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="EJY-mp-NCY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-at-SRf">
                                 <rect key="frame" x="-4" y="267" width="588" height="283.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,6 +56,16 @@
                                     <action selector="hourChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="dXX-ku-7Ga"/>
                                 </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horário das Notificações: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0t-wo-IxG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="20.5"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="EJY-mp-NCY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -93,8 +93,15 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Próximas Tarefas" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Próximas Tarefas" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Jg6-B2-mc7">
+                            <connections>
+                                <action selector="editEval:" destination="JEX-9P-axG" id="7NT-Ip-Er4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="Jg6-B2-mc7" id="rGS-88-4QY"/>
                         <outlet property="myNewTime" destination="dFs-EH-s6J" id="3LL-Os-0RZ"/>
                         <outlet property="tableView" destination="Pm4-at-SRf" id="SCy-JN-faI"/>
                     </connections>
@@ -337,8 +344,15 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cadastro Tarefas" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Cadastro Tarefas" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SDt-o7-cpA">
+                            <connections>
+                                <action selector="insertNewEval:" destination="7bK-jq-Zjz" id="aY2-rp-oUM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="SDt-o7-cpA" id="P3p-JG-EWd"/>
                         <outlet property="registerTableView" destination="r7i-6Z-zg0" id="cBy-Wb-bCc"/>
                     </connections>
                 </tableViewController>
@@ -362,6 +376,108 @@
             </objects>
             <point key="canvasLocation" x="-38" y="65"/>
         </scene>
+        <!--Tarefas Passadas-->
+        <scene sceneID="sus-4z-fkW">
+            <objects>
+                <viewController id="rOM-3v-YJ5" customClass="RegistryViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jCt-98-MmX"/>
+                        <viewControllerLayoutGuide type="bottom" id="3TI-Dx-x48"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LgH-Va-1ob">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-Ac-ekg">
+                                <rect key="frame" x="0.0" y="108" width="600" height="20.5"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="2qd-Xd-gWS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JfC-sC-IrY">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0mj-9A-iVB">
+                                <rect key="frame" x="0.0" y="128.5" width="600" height="422"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3TI-Dx-x48" firstAttribute="top" secondItem="0mj-9A-iVB" secondAttribute="bottom" id="Iky-xN-zXc"/>
+                            <constraint firstItem="wwE-Ac-ekg" firstAttribute="top" secondItem="JfC-sC-IrY" secondAttribute="bottom" id="MFJ-4w-R1y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0mj-9A-iVB" secondAttribute="trailing" constant="-16" id="WWr-rc-WYH"/>
+                            <constraint firstItem="0mj-9A-iVB" firstAttribute="leading" secondItem="LgH-Va-1ob" secondAttribute="leadingMargin" constant="-16" id="WeV-GE-O5l"/>
+                            <constraint firstItem="0mj-9A-iVB" firstAttribute="top" secondItem="JfC-sC-IrY" secondAttribute="bottom" id="aTN-U5-bwz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JfC-sC-IrY" secondAttribute="trailing" constant="-16" id="cRe-jF-qHo"/>
+                            <constraint firstItem="wwE-Ac-ekg" firstAttribute="leading" secondItem="LgH-Va-1ob" secondAttribute="leadingMargin" id="fF0-0Y-srb"/>
+                            <constraint firstItem="0mj-9A-iVB" firstAttribute="top" secondItem="wwE-Ac-ekg" secondAttribute="bottom" id="fYY-xw-gm3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wwE-Ac-ekg" secondAttribute="trailing" id="hOS-bA-8AD"/>
+                            <constraint firstAttribute="centerX" secondItem="JfC-sC-IrY" secondAttribute="centerX" id="jki-35-46K"/>
+                            <constraint firstItem="JfC-sC-IrY" firstAttribute="top" secondItem="jCt-98-MmX" secondAttribute="bottom" id="mLj-D1-QSp"/>
+                            <constraint firstAttribute="centerX" secondItem="wwE-Ac-ekg" secondAttribute="centerX" id="n9c-dT-Gyr"/>
+                            <constraint firstItem="JfC-sC-IrY" firstAttribute="leading" secondItem="LgH-Va-1ob" secondAttribute="leadingMargin" constant="-16" id="nBh-Wq-tDZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fF0-0Y-srb"/>
+                                <exclude reference="hOS-bA-8AD"/>
+                                <exclude reference="aTN-U5-bwz"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tarefas Passadas" id="0lb-4x-jgC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="qGh-fW-bi6"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="qGh-fW-bi6" id="kTX-cu-Rbf"/>
+                        <outlet property="tableView" destination="0mj-9A-iVB" id="Czv-f0-XMf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JDd-zd-cs4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1161" y="1635"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Fc6-ny-4b2">
+            <objects>
+                <viewController id="jMt-X5-Los" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8KB-dK-Hkv"/>
+                        <viewControllerLayoutGuide type="bottom" id="k8P-eh-pdI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EaN-kK-CEA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oti-kI-rqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-402" y="1635"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="yh1-WD-len">
+            <objects>
+                <navigationController id="DA0-gR-79G" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="iTT-fA-f1i"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDS-vm-PNd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rOM-3v-YJ5" kind="relationship" relationship="rootViewController" id="Nqo-YJ-3YV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pF-G5-Uki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1161" y="766"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ajq-EP-3Dq">
             <objects>
@@ -376,6 +492,7 @@
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="viewControllers" id="k4U-5h-zwD"/>
                         <segue destination="vC3-pB-5Vb" kind="relationship" relationship="viewControllers" id="I5t-Ot-7Tg"/>
                         <segue destination="VfN-BR-cN0" kind="relationship" relationship="viewControllers" id="Wi2-MF-egp"/>
+                        <segue destination="DA0-gR-79G" kind="relationship" relationship="viewControllers" id="zbJ-6a-zqt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8f-nk-Yhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,7 +516,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWw-lu-AwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-810" y="766.5"/>
+            <point key="canvasLocation" x="-441" y="766"/>
         </scene>
         <!--Disciplinas-->
         <scene sceneID="mnY-JQ-bBi">
@@ -486,7 +603,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXn-ML-myx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="766.5"/>
+            <point key="canvasLocation" x="367" y="766"/>
         </scene>
     </scenes>
 </document>

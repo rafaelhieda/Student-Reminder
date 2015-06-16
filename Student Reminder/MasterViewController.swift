@@ -10,14 +10,16 @@ import UIKit
 import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
+    @IBOutlet var registerTableView: UITableView!
+    
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     let manager = CoreDataManager.sharedInstance
     let notificationManager = NotificationManager.sharedInstance
-    @IBOutlet var registerTableView: UITableView!
+    
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-    var addButton = UIBarButtonItem()
-//    var subjectCell: EvaluationSubjectCell!
     
     
     override func viewDidLoad() {
@@ -26,8 +28,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 //        self.manager.insertSubject("Geografia")
         self.view.userInteractionEnabled = true
         manager.selectEvaluations()
-        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewEvaluation")
-        self.navigationItem.rightBarButtonItem = addButton
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         
@@ -38,7 +38,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.reloadData()
+        self.reloadCellData()
         self.addButton.enabled = self.checkEvaluations()
     }
     
@@ -53,45 +53,66 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
     
-    func insertNewEvaluation() {
-//        let entityDescription = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext:managedObjectContext!)
-//        
-//        let evaluation = Evaluations(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+    @IBAction func insertNewEval(sender: AnyObject) {
+        let nameAux = self.getNewName()
+        let newName = nameAux.newName
+        let nameCell = nameAux.nameCell
         
-        //Nome
-        let nameCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! evaluationNameCell
-        let newName = nameCell.evaluationName.text
-        
-        let typeCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! evaluationTypeCell
-        let selectedType = typeCell.segmentName()
-        //Subject
-        /*
-            retrieves the data from subject cell, then returns the actual persisted object in 
-            core data. Then adds it into a variable to be persisted in the evaluation entity.
-        */
-        let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
-        
-        let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
-        let selectedSubject = subjectCell.pickerData[auxRow] as! String
-        let subject = manager.selectSubject(selectedSubject as String)
-        
-        //date
-        let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 3)) as! evaluationDateCell
-        let newDate = dateCell.datePicker.date
+        let newType = self.getNewType()
+        let newSubject = self.getNewSubject()
+        let newDate = self.getNewDate()
         
         if newName.isEmpty  {
-            let alertController = UIAlertController(title: "Student Reminder", message: "Campo nome está vazio! Por favor preencha-o! :)", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.notificateError()
         }
-        else {
-            manager.insertEvaluations(newName, evalType: selectedType, evalGrade: 0.0, evalDate: newDate, evalSubject: subject)
-            manager.selectEvaluations()
+        else{
+            self.insertNewEvaluation(newName, newType: newType, newDate: newDate, newSubject: newSubject)
             nameCell.evaluationName.text = ""
-            
         }
+    }
+    
+    func getNewName() -> (newName: String, nameCell: evaluationNameCell){
+        //Nome
+        let nameCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! evaluationNameCell
+        return (nameCell.evaluationName.text, nameCell)
+    }
+    
+    func getNewType() -> String{
+        let typeCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! evaluationTypeCell
+        return typeCell.segmentName()
+    }
+    
+    func getNewSubject() -> Subjects{
+        //Subject
+        /*
+        retrieves the data from subject cell, then returns the actual persisted object in
+        core data. Then adds it into a variable to be persisted in the evaluation entity.
+        */
         
+        let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
+        let auxRow = subjectCell.evaluationSubjectName.selectedRowInComponent(0)
+        let selectedSubject = subjectCell.pickerData[auxRow] as! String
+        let newSubject = manager.selectSubject(selectedSubject as String)
+        
+        return newSubject
+    }
+    
+    func getNewDate() -> NSDate{
+        //date
+        let dateCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 3)) as! evaluationDateCell
+        return dateCell.datePicker.date
+    }
+    
+    func insertNewEvaluation(newName: String, newType: String, newDate: NSDate, newSubject: Subjects) {
+        manager.insertEvaluations(newName, evalType: newType, evalGrade: 0.0, evalDate: newDate, evalSubject: newSubject)
+        manager.selectEvaluations()
         notificationManager.reloadNotifications()
+    }
+    
+    func notificateError(){
+        let alertController = UIAlertController(title: "Student Reminder", message: "Campo nome está vazio! Por favor preencha-o! :)", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func notAvailableView() {
@@ -101,20 +122,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         label.text = "testando"
         label.textColor = UIColor.blackColor()
         notAvaliableView.addSubview(label)
-        
     }
     
     func DismissKeyboard(){
         view.endEditing(true)
     }
 
-    func reloadData(){
-//        let nameCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! evaluationNameCell
-//        nameCell.awakeFromNib()
-        
-//        let typeCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as! evaluationTypeCell
-//        typeCell.awakeFromNib()
-        
+    func reloadCellData(){
         let subjectCell = self.registerTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 2)) as! EvaluationSubjectCell
         subjectCell.reloadSubjectPicker()
     }
