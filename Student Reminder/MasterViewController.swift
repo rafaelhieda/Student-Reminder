@@ -12,6 +12,7 @@ import CoreData
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     let manager = CoreDataManager.sharedInstance
+    let notificationManager = NotificationManager.sharedInstance
     @IBOutlet var registerTableView: UITableView!
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -90,9 +91,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
         }
         
-        var notificationManager = NotificationManager.sharedInstance
-        notificationManager.cancelAllNotifications()
-        notificationManager.filterNotifications()
+        notificationManager.reloadNotifications()
     }
     
     func notAvailableView() {

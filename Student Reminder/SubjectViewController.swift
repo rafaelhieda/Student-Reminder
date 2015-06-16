@@ -25,6 +25,9 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        view.addGestureRecognizer(tap)
     }
     
     
@@ -116,7 +119,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         return (subjectsName,subjectsArray)
     }
     
-    func DismissKeyboard(){
+    func dismissKeyboard(){
         view.endEditing(true)
     }
 

@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        self.userDefaultsConfig()
+        
 //        let splitViewController = self.window!.rootViewController as! UISplitViewController
 //        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
 //        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -34,6 +36,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         
         return true
+    }
+    
+    func userDefaultsConfig(){
+        let pref = NSUserDefaults()
+        let isNotFirstTime = pref.boolForKey("isNotFirstTime")
+        
+        if(!isNotFirstTime){
+            pref.setBool(true, forKey: "isNotFirstTime")
+            
+            var newHour = NSDateComponents()
+            newHour.calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+            newHour.hour = 12
+            newHour.minute = 30
+            newHour.second = 0
+            
+            let myNewDate = newHour.date
+            
+            pref.setObject(myNewDate, forKey: "alarm")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

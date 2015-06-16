@@ -15,7 +15,7 @@ class SubjectCell: UITableViewCell,UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        self.subjectNameTF.autocapitalizationType = UITextAutocapitalizationType.Sentences
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

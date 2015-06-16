@@ -14,6 +14,7 @@ class NotificationManager: NSObject {
     static let sharedInstance = NotificationManager()
     var dateArray:[NSDate]!
     var manager = CoreDataManager.sharedInstance
+    let pref = NSUserDefaults()
     
     func cancelAllNotifications() {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
@@ -26,7 +27,10 @@ class NotificationManager: NSObject {
         var alertBody:String = ""
         
         var calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        var newDate = calendar?.dateBySettingHour(23, minute: 32, second: 00, ofDate: dateNow, options: nil)
+        
+        let newHourMinute = self.getUserTime()
+        
+        var newDate = calendar?.dateBySettingHour(newHourMinute.hour, minute: newHourMinute.minute, second: 00, ofDate: dateNow, options: nil)
         
         aux = days
         let evalArray = manager.selectEvaluations() as! [Evaluations]
@@ -86,7 +90,19 @@ class NotificationManager: NSObject {
 //            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
 //            
 //        }
+    }
+    
+    func reloadNotifications(){
+        self.cancelAllNotifications()
+        self.filterNotifications()
+    }
+    
+    func getUserTime() -> (hour: Int, minute: Int){
+        let calendar = NSCalendar.currentCalendar()
+        let alarmDate = pref.objectForKey("alarm") as! NSDate
         
+        let comp = calendar.components((.CalendarUnitHour | .CalendarUnitMinute), fromDate: alarmDate)
+        return (comp.hour, comp.minute)
     }
     
 }

@@ -11,9 +11,12 @@ import CoreData
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var myNewTime: UIDatePicker!
 
+    let pref = NSUserDefaults()
     let manager = CoreDataManager.sharedInstance
+    let notificationManager = NotificationManager.sharedInstance
     var arrayEvaluations: [NSManagedObject] = []
     var editButton = UIBarButtonItem()
     
@@ -33,11 +36,22 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.getEvaluations()
         tableView.reloadData()
+        
+        self.myNewTime.date = pref.objectForKey("alarm") as! NSDate
     }
     
     override func viewDidAppear(animated: Bool) {
         self.editButton.enabled = false
+    }
+    
+    @IBAction func hourChanged(sender: AnyObject) {
+        let myNewDate = myNewTime.date
+        
+        pref.setObject(myNewDate, forKey: "alarm")
+        
+        notificationManager.reloadNotifications()
     }
     
 //    MARK: Pegar dados do CoreData
