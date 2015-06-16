@@ -31,7 +31,7 @@ class NotificationManager: NSObject {
         aux = days
         let evalArray = manager.selectEvaluations() as! [Evaluations]
         if !evalArray.isEmpty {
-            for index in 0 ... days {
+            for days; days > 0; days-- {
             
                 for evaluation in evalArray {
                     /*
@@ -52,7 +52,6 @@ class NotificationManager: NSObject {
                     
                     let diffDate = (date.timeIntervalSinceDate(dateNow) / (60*60*24))
                     var roundedDiffDate = round(diffDate)
-                    println(roundedDiffDate)
                     if roundedDiffDate == 0 {
                         alertBody = "\(evaluationName) de \(subject) está vencendo! Vence hoje!"
                     }
@@ -64,12 +63,12 @@ class NotificationManager: NSObject {
                     }
                     
                     if roundedDiffDate >= 0 && roundedDiffDate <= 7 {
-                        if roundedDiffDate <= Double(aux) {
+                        if roundedDiffDate >= Double(aux) {
                             var localNotification = UILocalNotification()
                             localNotification.alertTitle = "Tarefas a serem Entregues/Feitas:"
                             localNotification.alertBody = alertBody
                             localNotification.soundName = UILocalNotificationDefaultSoundName
-                            localNotification.fireDate = dateNow.dateByAddingTimeInterval( (5 * NSTimeInterval(index)) )
+                            localNotification.fireDate = dateNow.dateByAddingTimeInterval( (5 * NSTimeInterval(aux)) )
                             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
                         }
                         
