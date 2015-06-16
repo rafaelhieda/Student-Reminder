@@ -54,23 +54,6 @@ class CoreDataManager: NSObject {
         }
         
         return arrayReturn
-        
-//        var results = self.getEntity("Evaluations").entity
-//        for result in results {
-//            let match = result as! NSManagedObject
-//            var name: AnyObject? = match.valueForKey("Name")
-//            var type: AnyObject? = match.valueForKey("type")
-//            var grade: AnyObject? = match.valueForKey("grade")
-//            var subject: AnyObject? = match.valueForKey("subject")
-//            var date: AnyObject? = match.valueForKey("date")
-//            println("--------------")
-//            println(name)
-//            println(type)
-//            println(grade)
-//            println(subject?.name)
-//            println(date)
-//            
-//        }
     }
     
     func insertEvaluations(evalName:String, evalType:String, evalGrade:Float, evalDate: NSDate, evalSubject:Subjects) {

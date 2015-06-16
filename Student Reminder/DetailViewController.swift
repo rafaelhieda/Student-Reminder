@@ -15,10 +15,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     let manager = CoreDataManager.sharedInstance
     var arrayEvaluations: [NSManagedObject] = []
+    var editButton = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let manager = CoreDataManager.sharedInstance
+        
+        editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editEvaluation")
+        self.navigationItem.rightBarButtonItem = editButton
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -30,6 +34,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.editButton.enabled = false
     }
     
 //    MARK: Pegar dados do CoreData
@@ -48,9 +56,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Tarefas Agendadas"
-    }
+//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Tarefas Agendadas"
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayEvaluations.count
@@ -66,6 +74,19 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             arrayEvaluations.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.editButton.enabled = true
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        self.editButton.enabled = false
+    }
+    
+    func editEvaluation(){
+        let editView = MasterViewController()
+        self.navigationController?.pushViewController(editView, animated: true)
     }
 }
 
