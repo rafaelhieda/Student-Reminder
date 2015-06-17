@@ -12,6 +12,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
 
     let manager = CoreDataManager.sharedInstance
     let notificationManager = NotificationManager.sharedInstance
+    let regManager = RegistryManager.sharedInstance
     var subjectsArray:[Subjects]!
     var subjectNameArray:[String]!
     
@@ -34,6 +35,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
     }
     
     override func viewWillAppear(animated: Bool) {
+        regManager.updateRegistry()
         subjectsArray = subjectsName().subjectsType
         subjectNameArray = subjectsName().stringType
     }

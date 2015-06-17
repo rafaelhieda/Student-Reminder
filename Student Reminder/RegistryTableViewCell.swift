@@ -29,12 +29,20 @@ class RegistryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setRegistry(registry: Evaluations){
+    func setRegistry(registry: Registry){
         self.nome.text = registry.name
         self.disciplina.text = registry.subject.name
         self.tipo.text = registry.type
-        self.status.text = "Entregue"
-        self.nota.text = "5"
+        
+        let wasSent = registry.sent
+        
+        if(Bool(wasSent)){
+            self.status.text = "Entregue"
+        }
+        else{
+            self.status.text = "Falta"
+        }
+        self.nota.text = "\(registry.grade)"
         
         self.minimize()
     }

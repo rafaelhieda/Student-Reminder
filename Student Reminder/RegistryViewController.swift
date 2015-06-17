@@ -17,6 +17,7 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let manager = CoreDataManager.sharedInstance
     let notificationManger = NotificationManager.sharedInstance
+    let regManager = RegistryManager.sharedInstance
     var arrayRegistry: [NSManagedObject] = []
     var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
     
@@ -32,6 +33,8 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewWillAppear(animated: Bool) {
+        regManager.updateRegistry()
+        
         self.editButton.enabled = false
         
         self.getRegistry()
@@ -44,7 +47,7 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     
 //    MARK: GetData
     func getRegistry(){
-        arrayRegistry = manager.selectEvaluations()
+        arrayRegistry = manager.selectRegistrys()
     }
     
 //    MARK: TableView
@@ -52,7 +55,7 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("RegistryTableViewCell",
             forIndexPath: indexPath) as! RegistryTableViewCell
         
-        let registry = self.arrayRegistry[indexPath.row] as! Evaluations
+        let registry = self.arrayRegistry[indexPath.row] as! Registry
         
         cell.setRegistry(registry)
         

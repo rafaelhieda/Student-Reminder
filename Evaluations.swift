@@ -12,7 +12,6 @@ import CoreData
 class Evaluations: NSManagedObject {
 
     @NSManaged var type: String
-    @NSManaged var grade: NSNumber
     @NSManaged var date: NSDate
     @NSManaged var name: String
     @NSManaged var subject: Subjects

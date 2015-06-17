@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Evaluated" representedClassName="Student_Reminder.Evaluated" syncable="YES">
-        <attribute name="evaluatedObject" optional="YES" attributeType="Transformable" syncable="YES"/>
-    </entity>
     <entity name="Evaluations" representedClassName="Student_Reminder.Evaluations" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="grade" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" inverseName="evaluations" inverseEntity="Subjects" syncable="YES"/>
@@ -13,17 +9,23 @@
     <entity name="Notification" representedClassName="PRODUCT_MODULE_NAME.Notification" syncable="YES">
         <attribute name="notification" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
+    <entity name="Registry" representedClassName="Student_Reminder.Registry" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="grade" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sent" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" inverseName="registry" inverseEntity="Subjects" syncable="YES"/>
+    </entity>
     <entity name="Subjects" representedClassName="Student_Reminder.Subjects" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="evaluations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Evaluations" inverseName="subject" inverseEntity="Evaluations" syncable="YES"/>
+        <relationship name="registry" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Registry" inverseName="subject" inverseEntity="Registry" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Evaluated" positionX="-1856" positionY="-5196" width="128" height="60"/>
-        <element name="Evaluations" positionX="-1845" positionY="-5458" width="162" height="118"/>
-        <element name="Subjects" positionX="-2169" positionY="-5679" width="128" height="58"/>
-        <element name="Notification" positionX="-1989" positionY="-5526" width="128" height="60"/>
-        <element name="Evaluated" positionX="-1856" positionY="-5196" width="128" height="58"/>
-        <element name="Evaluations" positionX="-1845" positionY="-5458" width="162" height="118"/>
-        <element name="Subjects" positionX="-2169" positionY="-5679" width="128" height="73"/>
+        <element name="Evaluations" positionX="-1845" positionY="-5458" width="162" height="103"/>
+        <element name="Notification" positionX="-1874" positionY="-5649" width="128" height="60"/>
+        <element name="Subjects" positionX="-2169" positionY="-5679" width="128" height="88"/>
+        <element name="Registry" positionX="-2160" positionY="-5443" width="128" height="133"/>
     </elements>
 </model>

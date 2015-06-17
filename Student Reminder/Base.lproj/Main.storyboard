@@ -443,10 +443,10 @@
             </objects>
             <point key="canvasLocation" x="-1161" y="1635"/>
         </scene>
-        <!--View Controller-->
+        <!--Registry Edit-->
         <scene sceneID="Fc6-ny-4b2">
             <objects>
-                <viewController id="jMt-X5-Los" sceneMemberID="viewController">
+                <viewController id="jMt-X5-Los" customClass="RegistryEdit" customModule="Student_Reminder" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8KB-dK-Hkv"/>
                         <viewControllerLayoutGuide type="bottom" id="k8P-eh-pdI"/>
@@ -454,8 +454,63 @@
                     <view key="view" contentMode="scaleToFill" id="EaN-kK-CEA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nota:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A81-W8-LR3">
+                                <rect key="frame" x="145" y="225" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="053-EC-vCc">
+                                <rect key="frame" x="145" y="355" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUt-H6-1Ye">
+                                <rect key="frame" x="145" y="93" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Tp-Fm-Ujq">
+                                <rect key="frame" x="305" y="93" width="181" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i8C-Qb-aEY">
+                                <rect key="frame" x="305" y="348" width="181" height="29"/>
+                                <segments>
+                                    <segment title="Falta"/>
+                                    <segment title="Entrege"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-2B-aKw">
+                                <rect key="frame" x="277" y="479" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="jMt-X5-Los" eventType="touchUpInside" id="PtX-OK-VZj"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-5B-dBb">
+                                <rect key="frame" x="305" y="221" width="181" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="PqA-2B-aKw" secondAttribute="centerX" id="qph-sY-0aZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="grade" destination="Ftb-5B-dBb" id="GOB-5F-MYd"/>
+                        <outlet property="name" destination="5Tp-Fm-Ujq" id="Ecx-GO-Ukr"/>
+                        <outlet property="status" destination="i8C-Qb-aEY" id="FgV-pe-nDa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oti-kI-rqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

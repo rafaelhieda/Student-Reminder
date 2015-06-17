@@ -17,6 +17,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     let manager = CoreDataManager.sharedInstance
     let notificationManager = NotificationManager.sharedInstance
+    let regManager = RegistryManager.sharedInstance
     
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -35,6 +36,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     override func viewWillAppear(animated: Bool) {
+        regManager.updateRegistry()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -104,7 +106,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func insertNewEvaluation(newName: String, newType: String, newDate: NSDate, newSubject: Subjects) {
-        manager.insertEvaluations(newName, evalType: newType, evalGrade: 0.0, evalDate: newDate, evalSubject: newSubject)
+        manager.insertEvaluations(newName, evalType: newType, evalDate: newDate, evalSubject: newSubject)
         manager.selectEvaluations()
         notificationManager.reloadNotifications()
     }

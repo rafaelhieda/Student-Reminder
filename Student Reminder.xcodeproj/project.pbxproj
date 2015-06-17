@@ -12,6 +12,9 @@
 		24B62DB61B2FED230055DB89 /* RegistryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */; };
 		24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */; };
 		24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */; };
+		24C3FF531B31341200D97522 /* Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C3FF521B31341200D97522 /* Registry.swift */; };
+		24C3FF551B3137F000D97522 /* RegistryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C3FF541B3137F000D97522 /* RegistryManager.swift */; };
+		24C3FF571B31491400D97522 /* RegistryEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C3FF561B31491400D97522 /* RegistryEdit.swift */; };
 		E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */; };
 		E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */; };
 		E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E394ACE41B290662005772BC /* SubjectViewController.swift */; };
@@ -28,7 +31,6 @@
 		E3D38CE31B1E22BA00D6C709 /* Student_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38CE21B1E22BA00D6C709 /* Student_ReminderTests.swift */; };
 		E3D38D151B1EBA2000D6C709 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D121B1EBA2000D6C709 /* Subjects.swift */; };
 		E3D38D161B1EBA2000D6C709 /* Evaluations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D131B1EBA2000D6C709 /* Evaluations.swift */; };
-		E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D141B1EBA2000D6C709 /* SentEvaluations.swift */; };
 		E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */; };
 		E3D38D1E1B2255C300D6C709 /* evaluationNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D1D1B2255C300D6C709 /* evaluationNameCell.swift */; };
 		E3D38D201B225BDA00D6C709 /* evaluationTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D38D1F1B225BDA00D6C709 /* evaluationTypeCell.swift */; };
@@ -50,6 +52,9 @@
 		24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistryTableViewCell.xib; sourceTree = "<group>"; };
 		24C171DC1B2BACE400D82DD5 /* EvaluationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationTableViewCell.swift; sourceTree = "<group>"; };
 		24C171DD1B2BACE400D82DD5 /* EvaluationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationTableViewCell.xib; sourceTree = "<group>"; };
+		24C3FF521B31341200D97522 /* Registry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registry.swift; sourceTree = "<group>"; };
+		24C3FF541B3137F000D97522 /* RegistryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryManager.swift; sourceTree = "<group>"; };
+		24C3FF561B31491400D97522 /* RegistryEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryEdit.swift; sourceTree = "<group>"; };
 		E316A5E91B22A63C00113F35 /* evaluationDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationDateCell.swift; sourceTree = "<group>"; };
 		E394ACE01B28DCAE005772BC /* EvaluationSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationSubjectCell.swift; sourceTree = "<group>"; };
 		E394ACE41B290662005772BC /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +75,6 @@
 		E3D38CE21B1E22BA00D6C709 /* Student_ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student_ReminderTests.swift; sourceTree = "<group>"; };
 		E3D38D121B1EBA2000D6C709 /* Subjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
 		E3D38D131B1EBA2000D6C709 /* Evaluations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluations.swift; sourceTree = "<group>"; };
-		E3D38D141B1EBA2000D6C709 /* SentEvaluations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentEvaluations.swift; sourceTree = "<group>"; };
 		E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E3D38D1D1B2255C300D6C709 /* evaluationNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationNameCell.swift; sourceTree = "<group>"; };
 		E3D38D1F1B225BDA00D6C709 /* evaluationTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationTypeCell.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				E394ACE41B290662005772BC /* SubjectViewController.swift */,
 				E3D38CCE1B1E22BA00D6C709 /* DetailViewController.swift */,
 				24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */,
+				24C3FF561B31491400D97522 /* RegistryEdit.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			children = (
 				E3D38D1A1B22423800D6C709 /* CoreDataManager.swift */,
 				E394AD531B2E797B005772BC /* NotificationManager.swift */,
+				24C3FF541B3137F000D97522 /* RegistryManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -180,7 +186,7 @@
 				E394AD551B2E7CD4005772BC /* Notification.swift */,
 				E3D38D121B1EBA2000D6C709 /* Subjects.swift */,
 				E3D38D131B1EBA2000D6C709 /* Evaluations.swift */,
-				E3D38D141B1EBA2000D6C709 /* SentEvaluations.swift */,
+				24C3FF521B31341200D97522 /* Registry.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3D38D151B1EBA2000D6C709 /* Subjects.swift in Sources */,
+				24C3FF571B31491400D97522 /* RegistryEdit.swift in Sources */,
 				E3D38D161B1EBA2000D6C709 /* Evaluations.swift in Sources */,
 				E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */,
 				E3D38D201B225BDA00D6C709 /* evaluationTypeCell.swift in Sources */,
@@ -311,14 +318,15 @@
 				E3D38D1E1B2255C300D6C709 /* evaluationNameCell.swift in Sources */,
 				E394AD541B2E797B005772BC /* NotificationManager.swift in Sources */,
 				E3D38CCD1B1E22BA00D6C709 /* MasterViewController.swift in Sources */,
+				24C3FF531B31341200D97522 /* Registry.swift in Sources */,
 				E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */,
-				E3D38D171B1EBA2000D6C709 /* SentEvaluations.swift in Sources */,
 				E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */,
 				24B62DB21B2FEA640055DB89 /* RegistryViewController.swift in Sources */,
 				E394AD1D1B2A7CA1005772BC /* SubjectCell.swift in Sources */,
 				E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */,
 				24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */,
 				E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */,
+				24C3FF551B3137F000D97522 /* RegistryManager.swift in Sources */,
 				E3D38CCF1B1E22BA00D6C709 /* DetailViewController.swift in Sources */,
 				24B62DB51B2FED230055DB89 /* RegistryTableViewCell.swift in Sources */,
 				E394AD561B2E7CD4005772BC /* Notification.swift in Sources */,

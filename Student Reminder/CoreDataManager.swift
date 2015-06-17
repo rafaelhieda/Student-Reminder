@@ -56,7 +56,7 @@ class CoreDataManager: NSObject {
         return arrayReturn
     }
     
-    func insertEvaluations(evalName:String, evalType:String, evalGrade:Float, evalDate: NSDate, evalSubject:Subjects) {
+    func insertEvaluations(evalName:String, evalType:String, evalDate: NSDate, evalSubject:Subjects) {
         
         let entity = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext: managedObjectContext!)
         
@@ -66,7 +66,6 @@ class CoreDataManager: NSObject {
         var newEvaluation = Evaluations(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
         newEvaluation.name = evalName
         newEvaluation.type = evalType
-        newEvaluation.grade = evalGrade
         newEvaluation.date = evalDate
         newEvaluation.subject = evalSubject
         managedObjectContext?.save(&error)
@@ -74,6 +73,57 @@ class CoreDataManager: NSObject {
     
     func removeEvaluation(objectToRemove: NSManagedObject){
         managedObjectContext?.deleteObject(objectToRemove)
+        managedObjectContext?.save(&error)
+    }
+    
+    func selectRegistrys() -> [NSManagedObject]{
+        var entity = NSEntityDescription.entityForName("Registry", inManagedObjectContext: managedObjectContext!)
+        var request = NSFetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        request.entity = entity
+        
+        request.sortDescriptors = [sortDescriptor]
+        
+        var objects = managedObjectContext?.executeFetchRequest(request, error: &error)
+        var arrayReturn: [NSManagedObject] = []
+        
+        if let results = objects{
+            for result in results {
+                let match = result as! NSManagedObject
+                let nome:AnyObject = match.valueForKey("name")!
+                var date: AnyObject = match.valueForKey("date")!
+                
+                arrayReturn.append(match)
+            }
+        }
+        
+        return arrayReturn
+    }
+    
+    func insertRegistry(regName:String, regType:String, regDate: NSDate, regSubject:Subjects) {
+        
+        let entity = NSEntityDescription.entityForName("Registry", inManagedObjectContext: managedObjectContext!)
+        
+        let request = NSFetchRequest()
+        request.entity = entity
+        
+        var newRegistry = Registry(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
+        newRegistry.name = regName
+        newRegistry.type = regType
+        newRegistry.date = regDate
+        newRegistry.subject = regSubject
+        newRegistry.grade = 0.0
+        newRegistry.sent = false
+        managedObjectContext?.save(&error)
+    }
+    
+    func updateRegistry(name: String, sent: Bool, grade: Float, id: NSManagedObjectID) {
+        
+        let entity = managedObjectContext?.objectWithID(id)
+        
+        entity?.setValue(name, forKey: "name")
+        entity?.setValue(grade, forKey: "grade")
+        entity?.setValue(sent, forKey: "sent")
         managedObjectContext?.save(&error)
     }
     

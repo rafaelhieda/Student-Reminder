@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let pref = NSUserDefaults()
     let manager = CoreDataManager.sharedInstance
     let notificationManager = NotificationManager.sharedInstance
+    let regManager = RegistryManager.sharedInstance
     var arrayEvaluations: [NSManagedObject] = []
     
 //    MARK: View
@@ -33,6 +34,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(animated: Bool) {
+        regManager.updateRegistry()
         self.getEvaluations()
         tableView.reloadData()
         

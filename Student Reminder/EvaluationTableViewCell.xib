@@ -71,11 +71,11 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="i63-8j-Kfl"/>
+                        <exclude reference="n3D-KJ-eLX"/>
                         <exclude reference="9xn-Br-69m"/>
                         <exclude reference="CbR-C8-j4C"/>
                         <exclude reference="Ioq-Fq-Vpv"/>
-                        <exclude reference="i63-8j-Kfl"/>
-                        <exclude reference="n3D-KJ-eLX"/>
                         <exclude reference="0uu-qQ-gvY"/>
                         <exclude reference="K9E-HW-bu9"/>
                         <exclude reference="S9t-EE-9N2"/>
