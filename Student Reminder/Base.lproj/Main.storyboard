@@ -432,7 +432,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Tarefas Passadas" id="0lb-4x-jgC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="qGh-fW-bi6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="qGh-fW-bi6">
+                            <connections>
+                                <action selector="editRegistry:" destination="rOM-3v-YJ5" id="WTW-br-IJT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="qGh-fW-bi6" id="kTX-cu-Rbf"/>
@@ -514,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oti-kI-rqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="64.5"/>
+            <point key="canvasLocation" x="-481.5" y="1635"/>
         </scene>
         <!--Item-->
         <scene sceneID="yh1-WD-len">
