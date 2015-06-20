@@ -15,10 +15,13 @@ class RegistryEdit: UIViewController {
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var status: UISegmentedControl!
     
+    var registry: Registry!
+    
     let coreDataManager = CoreDataManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println(registry.description)
         
         //status.selectedSegmentIndex deve ser igual ao status atual
         status.selectedSegmentIndex = 0

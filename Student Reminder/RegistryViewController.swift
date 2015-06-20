@@ -21,6 +21,7 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     var arrayRegistry: [NSManagedObject] = []
     var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +82,14 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.beginUpdates()
         tableView.endUpdates()
+        
+        let registry = self.arrayRegistry[indexPath.row] as! Registry
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editViewController = storyboard.instantiateViewControllerWithIdentifier("regedit") as! RegistryEdit
+        editViewController.registry = registry
+        
+        self.navigationController?.pushViewController(editViewController, animated: true)
+        
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
@@ -93,7 +102,7 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.endUpdates()
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -101,6 +110,6 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

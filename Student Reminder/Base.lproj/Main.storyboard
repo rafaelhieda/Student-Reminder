@@ -446,7 +446,7 @@
         <!--Registry Edit-->
         <scene sceneID="Fc6-ny-4b2">
             <objects>
-                <viewController id="jMt-X5-Los" customClass="RegistryEdit" customModule="Student_Reminder" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regedit" id="jMt-X5-Los" customClass="RegistryEdit" customModule="Student_Reminder" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8KB-dK-Hkv"/>
                         <viewControllerLayoutGuide type="bottom" id="k8P-eh-pdI"/>
@@ -514,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oti-kI-rqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-402" y="1635"/>
+            <point key="canvasLocation" x="1359" y="64.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="yh1-WD-len">
