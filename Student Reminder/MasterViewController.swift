@@ -70,6 +70,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         else{
             self.insertNewEvaluation(newName, newType: newType, newDate: newDate, newSubject: newSubject)
             nameCell.evaluationName.text = ""
+            let cloudManager = CloudKitManager.sharedInstance
+            cloudManager.fetchEvaluations()
         }
     }
     
