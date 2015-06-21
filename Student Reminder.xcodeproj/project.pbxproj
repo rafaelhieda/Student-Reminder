@@ -38,8 +38,6 @@
 		E3DDF5231B35B7CD007CE677 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5221B35B7CD007CE677 /* CloudKitManager.swift */; };
 		E3DDF5271B35B920007CE677 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5261B35B920007CE677 /* Evaluation.swift */; };
 		E3DDF5291B35C2F0007CE677 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DDF5281B35C2F0007CE677 /* CloudKit.framework */; };
-		E3DDF52B1B35FB9B007CE677 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3DDF52A1B35FB9B007CE677 /* iPadStoryboard.storyboard */; };
-		E3DDF52F1B36088E007CE677 /* IPadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF52E1B36088E007CE677 /* IPadTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +87,6 @@
 		E3DDF5241B35B83A007CE677 /* Student Reminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Student Reminder.entitlements"; sourceTree = "<group>"; };
 		E3DDF5261B35B920007CE677 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		E3DDF5281B35C2F0007CE677 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		E3DDF52A1B35FB9B007CE677 /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
-		E3DDF52E1B36088E007CE677 /* IPadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPadTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +124,6 @@
 		E3D38CB91B1E22BA00D6C709 = {
 			isa = PBXGroup;
 			children = (
-				E3DDF52D1B36082C007CE677 /* iPad views */,
-				E3DDF52C1B35FBA8007CE677 /* Storyboard */,
 				E3DDF5281B35C2F0007CE677 /* CloudKit.framework */,
 				E3DDF5251B35B900007CE677 /* model */,
 				E3D38CEF1B1E359C00D6C709 /* Entities */,
@@ -156,6 +150,7 @@
 				E3D38CEC1B1E337C00D6C709 /* Manager */,
 				E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */,
 				E394ACE61B290687005772BC /* ViewControllers */,
+				E3D38CD01B1E22BA00D6C709 /* Main.storyboard */,
 				E3D38CD31B1E22BA00D6C709 /* Images.xcassets */,
 				E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */,
 				E3D38CC91B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld */,
@@ -233,23 +228,6 @@
 				E3DDF5261B35B920007CE677 /* Evaluation.swift */,
 			);
 			name = model;
-			sourceTree = "<group>";
-		};
-		E3DDF52C1B35FBA8007CE677 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				E3DDF52A1B35FB9B007CE677 /* iPadStoryboard.storyboard */,
-				E3D38CD01B1E22BA00D6C709 /* Main.storyboard */,
-			);
-			name = Storyboard;
-			sourceTree = "<group>";
-		};
-		E3DDF52D1B36082C007CE677 /* iPad views */ = {
-			isa = PBXGroup;
-			children = (
-				E3DDF52E1B36088E007CE677 /* IPadTableViewController.swift */,
-			);
-			name = "iPad views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,7 +321,6 @@
 				E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */,
 				24B62DB61B2FED230055DB89 /* RegistryTableViewCell.xib in Resources */,
 				24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */,
-				E3DDF52B1B35FB9B007CE677 /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,11 +343,7 @@
 				24C3FF571B31491400D97522 /* RegistryEdit.swift in Sources */,
 				E3D38D161B1EBA2000D6C709 /* Evaluations.swift in Sources */,
 				E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
-				E3DDF52F1B36088E007CE677 /* IPadTableViewController.swift in Sources */,
-=======
 				243D93C91B368ACF007EC31C /* EvaluationEdit.swift in Sources */,
->>>>>>> origin/master
 				E3D38D201B225BDA00D6C709 /* evaluationTypeCell.swift in Sources */,
 				E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */,
 				E3D38D1E1B2255C300D6C709 /* evaluationNameCell.swift in Sources */,
@@ -417,7 +390,6 @@
 				E3D38CD11B1E22BA00D6C709 /* Base */,
 			);
 			name = Main.storyboard;
-			path = "Student Reminder";
 			sourceTree = "<group>";
 		};
 		E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */ = {
