@@ -16,7 +16,7 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     let manager = CoreDataManager.sharedInstance
-    let notificationManger = NotificationManager.sharedInstance
+    let notificationManager = NotificationManager.sharedInstance
     let regManager = RegistryManager.sharedInstance
     var arrayRegistry: [NSManagedObject] = []
     var selectedCell: RegistryTableViewCell = RegistryTableViewCell()
@@ -38,9 +38,9 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.editButton.enabled = false
         
+        self.selectedRowIndex = NSIndexPath(forRow: -1, inSection: 0)
         self.getRegistry()
         self.tableView.reloadData()
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,7 +71,16 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
         if indexPath.row == selectedRowIndex.row {
             return 150
         }
-        return 70
+        return 80
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            manager.removeRegistry(arrayRegistry[indexPath.row])
+            arrayRegistry.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            notificationManager.reloadNotifications()
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

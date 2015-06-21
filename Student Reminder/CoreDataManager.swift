@@ -140,6 +140,10 @@ class CoreDataManager: NSObject {
         managedObjectContext?.save(&error)
     }
     
+    func removeRegistry(objectToRemove: NSManagedObject){
+        managedObjectContext?.deleteObject(objectToRemove)
+        managedObjectContext?.save(&error)
+    }
 //    MARK: Subjects
     
     //acho que podemos até usar em outra classe, e retornar algo nele

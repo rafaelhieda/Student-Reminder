@@ -34,6 +34,14 @@ class RegistryTableViewCell: UITableViewCell {
         self.disciplina.text = registry.subject.name
         self.tipo.text = registry.type
         
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        data.text = dateFormatter.stringFromDate(registry.date)
+        
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        hora.text = timeFormatter.stringFromDate(registry.date)
+        
         let wasSent = registry.sent
         
         if(Bool(wasSent)){

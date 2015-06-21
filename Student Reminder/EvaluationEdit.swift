@@ -54,8 +54,9 @@ class EvaluationEditViewController: UITableViewController {
         
         if(newName != ""){
             self.updateEval(newName, newType: newType, newDate: newDate, newSubject: newSub)
+            notificationManager.reloadNotifications()
             self.cloudManager.fetchEvaluations()
-            self.viewWillDisappear(false)
+            self.navigationController?.popViewControllerAnimated(true)
         }
         else{
             self.notificateError()

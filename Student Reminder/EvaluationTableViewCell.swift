@@ -35,14 +35,14 @@ class EvaluationTableViewCell: UITableViewCell {
         tipo.text = evaluation.type
         nome.text = evaluation.name
         
+        auxDate = evaluation.date
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        data.text = dateFormatter.stringFromDate(evaluation.date)
+        data.text = dateFormatter.stringFromDate(auxDate)
         
         let timeFormatter = NSDateFormatter()
         timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        auxDate = evaluation.date
         hora.text = timeFormatter.stringFromDate(auxDate)
     }
 }

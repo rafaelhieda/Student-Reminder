@@ -60,20 +60,19 @@ class RegistryEdit: UIViewController, UITextFieldDelegate {
         if(name.text != "" && name.text != nil){
             return name.text
         }
-        //Retornar nome antigo
-        return ""
+        return self.oldName
     }
     
     func getNewGrade() -> Float{
         if(grade.text != "" && grade.text != nil){
             let newGrade = (grade.text as NSString).floatValue
             
-            if(newGrade > 0){
+            if(newGrade > 0 && newGrade <= 10){
                 return newGrade
             }
         }
         
-        return 0.0
+        return ((self.oldGrade as NSString).floatValue)
     }
     
     func getNewStatus() -> Bool{
