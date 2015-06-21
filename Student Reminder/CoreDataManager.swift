@@ -31,6 +31,7 @@ class CoreDataManager: NSObject {
         
     }
     
+//    MARK: Evaluation
     //dependendo da pra colocar em outro metodo
     func selectEvaluations() -> [NSManagedObject]{
         var entity = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext: managedObjectContext!)
@@ -76,6 +77,18 @@ class CoreDataManager: NSObject {
         managedObjectContext?.save(&error)
     }
     
+    func updateEvaluation(name: String, type: String, date: NSDate, subject: Subjects, id: NSManagedObjectID) {
+        
+        let entity = managedObjectContext?.objectWithID(id)
+        
+        entity?.setValue(name, forKey: "name")
+        entity?.setValue(type, forKey: "type")
+        entity?.setValue(date, forKey: "date")
+        entity?.setValue(subject, forKey: "subject")
+        managedObjectContext?.save(&error)
+    }
+    
+//    MARK: Registry
     func selectRegistrys() -> [NSManagedObject]{
         var entity = NSEntityDescription.entityForName("Registry", inManagedObjectContext: managedObjectContext!)
         var request = NSFetchRequest()
@@ -126,6 +139,8 @@ class CoreDataManager: NSObject {
         entity?.setValue(sent, forKey: "sent")
         managedObjectContext?.save(&error)
     }
+    
+//    MARK: Subjects
     
     //acho que podemos até usar em outra classe, e retornar algo nele
     func selectSubjects() -> [AnyObject] {
@@ -179,6 +194,12 @@ class CoreDataManager: NSObject {
         managedObjectContext?.save(&error)
     }
     
+    func removeSubject(objectToRemove: NSManagedObject){
+        managedObjectContext?.deleteObject(objectToRemove)
+        managedObjectContext?.save(&error)
+    }
+    
+//    MARK: Notification
     func insertNotification(addNotification:UILocalNotification) {
         var entity = NSEntityDescription.entityForName("Notification", inManagedObjectContext: managedObjectContext!)
         
@@ -204,8 +225,7 @@ class CoreDataManager: NSObject {
         
     }
     
-    
-    
+//    MARK: Aux
     func selectEvaluationDates() -> [NSDate] {
         var entity = NSEntityDescription.entityForName("Evaluations", inManagedObjectContext: managedObjectContext!)
         var request = NSFetchRequest()
@@ -229,11 +249,6 @@ class CoreDataManager: NSObject {
         }
         return arrayReturn
 
-    }
-
-    func removeSubject(objectToRemove: NSManagedObject){
-        managedObjectContext?.deleteObject(objectToRemove)
-        managedObjectContext?.save(&error)
     }
     
     func debug(){

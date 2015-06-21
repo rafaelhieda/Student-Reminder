@@ -19,9 +19,8 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     let notificationManger = NotificationManager.sharedInstance
     let regManager = RegistryManager.sharedInstance
     var arrayRegistry: [NSManagedObject] = []
+    var selectedCell: RegistryTableViewCell = RegistryTableViewCell()
     var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,24 +77,17 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.editButton.enabled = true
         selectedRowIndex = indexPath
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! RegistryTableViewCell
-        cell.maximize()
+        selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! RegistryTableViewCell
+        selectedCell.maximize()
         
         tableView.beginUpdates()
         tableView.endUpdates()
-        
-//        let registry = self.arrayRegistry[indexPath.row] as! Registry
-//        var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let editViewController = storyboard.instantiateViewControllerWithIdentifier("regedit") as! RegistryEdit
-//        editViewController.registry = registry
-//        
-//        self.navigationController?.pushViewController(editViewController, animated: true)
-        
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         self.editButton.enabled = false
         selectedRowIndex = NSIndexPath(forRow: -1, inSection: 0)
+        
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! RegistryTableViewCell
         cell.minimize()
         
@@ -107,21 +99,22 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - registryEdit button
     @IBAction func editRegistry(sender: AnyObject) {
         let registry = self.arrayRegistry[selectedRowIndex.row] as! Registry
-                var storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let editViewController = storyboard.instantiateViewControllerWithIdentifier("regedit") as! RegistryEdit
-                editViewController.registry = registry
         
-                self.navigationController?.pushViewController(editViewController, animated: true)
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let editView = storyboard.instantiateViewControllerWithIdentifier("regedit") as! RegistryEdit
+        
+        editView.registry = registry
+        
+        editView.oldName = selectedCell.nome.text!
+        editView.oldGrade = selectedCell.nota.text!
+        
+        if(selectedCell.status.text == "Entregue"){
+            editView.oldStatus = 0
+        }
+        else{
+            editView.oldStatus = 1
+        }
+        
+        self.navigationController?.pushViewController(editView, animated: true)
     }
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    
-
 }

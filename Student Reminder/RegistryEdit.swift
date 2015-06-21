@@ -9,11 +9,15 @@
 import UIKit
 import CoreData
 
-class RegistryEdit: UIViewController {
+class RegistryEdit: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var grade: UITextField!
     @IBOutlet weak var status: UISegmentedControl!
+    
+    var oldName = ""
+    var oldGrade = ""
+    var oldStatus = 0
     
     var registry: Registry!
     
@@ -23,8 +27,23 @@ class RegistryEdit: UIViewController {
         super.viewDidLoad()
         println(registry.description)
         
+        name.delegate = self
+        grade.delegate = self
+        
+        self.setOldValues()
+        
         //status.selectedSegmentIndex deve ser igual ao status atual
         status.selectedSegmentIndex = 0
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    func setOldValues(){
+        self.name.text = self.oldName
+        self.grade.text = self.oldGrade
+        self.status.selectedSegmentIndex = self.oldStatus
     }
     
     @IBAction func save(sender: AnyObject) {
@@ -32,7 +51,9 @@ class RegistryEdit: UIViewController {
         let newGrade = getNewGrade()
         let newStatus = getNewStatus()
         
-        coreDataManager.updateRegistry(newName, sent: newStatus, grade: newGrade, id: NSManagedObjectID())
+        coreDataManager.updateRegistry(newName, sent: newStatus, grade: newGrade, id: registry.objectID)
+        
+        self.viewWillDisappear(false)
     }
     
     func getNewName() -> String{
@@ -62,5 +83,14 @@ class RegistryEdit: UIViewController {
         else{
             return true
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
 }

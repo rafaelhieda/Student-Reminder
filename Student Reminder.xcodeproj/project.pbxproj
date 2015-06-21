@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243D93C91B368ACF007EC31C /* EvaluationEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243D93C81B368ACF007EC31C /* EvaluationEdit.swift */; };
 		24B62DB21B2FEA640055DB89 /* RegistryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */; };
 		24B62DB51B2FED230055DB89 /* RegistryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B62DB31B2FED230055DB89 /* RegistryTableViewCell.swift */; };
 		24B62DB61B2FED230055DB89 /* RegistryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		243D93C81B368ACF007EC31C /* EvaluationEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationEdit.swift; sourceTree = "<group>"; };
 		24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryViewController.swift; sourceTree = "<group>"; };
 		24B62DB31B2FED230055DB89 /* RegistryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistryTableViewCell.swift; sourceTree = "<group>"; };
 		24B62DB41B2FED230055DB89 /* RegistryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistryTableViewCell.xib; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				E3D38CCC1B1E22BA00D6C709 /* MasterViewController.swift */,
 				E394ACE41B290662005772BC /* SubjectViewController.swift */,
 				E3D38CCE1B1E22BA00D6C709 /* DetailViewController.swift */,
+				243D93C81B368ACF007EC31C /* EvaluationEdit.swift */,
 				24B62DB11B2FEA640055DB89 /* RegistryViewController.swift */,
 				24C3FF561B31491400D97522 /* RegistryEdit.swift */,
 			);
@@ -363,7 +366,11 @@
 				24C3FF571B31491400D97522 /* RegistryEdit.swift in Sources */,
 				E3D38D161B1EBA2000D6C709 /* Evaluations.swift in Sources */,
 				E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				E3DDF52F1B36088E007CE677 /* IPadTableViewController.swift in Sources */,
+=======
+				243D93C91B368ACF007EC31C /* EvaluationEdit.swift in Sources */,
+>>>>>>> origin/master
 				E3D38D201B225BDA00D6C709 /* evaluationTypeCell.swift in Sources */,
 				E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */,
 				E3D38D1E1B2255C300D6C709 /* evaluationNameCell.swift in Sources */,

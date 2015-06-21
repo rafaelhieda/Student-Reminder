@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EvaluationTableViewCell: UITableViewCell {
 
@@ -15,6 +16,8 @@ class EvaluationTableViewCell: UITableViewCell {
     @IBOutlet weak var tipo: UILabel!
     @IBOutlet weak var nome: UILabel!
     @IBOutlet weak var disciplina: UILabel!
+    
+    var auxDate = NSDate()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +41,8 @@ class EvaluationTableViewCell: UITableViewCell {
         
         let timeFormatter = NSDateFormatter()
         timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        hora.text = timeFormatter.stringFromDate(evaluation.date)
+        
+        auxDate = evaluation.date
+        hora.text = timeFormatter.stringFromDate(auxDate)
     }
 }

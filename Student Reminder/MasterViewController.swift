@@ -12,7 +12,6 @@ import CoreData
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     @IBOutlet var registerTableView: UITableView!
-    
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     let manager = CoreDataManager.sharedInstance
@@ -20,7 +19,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     let regManager = RegistryManager.sharedInstance
     
     var detailViewController: DetailViewController? = nil
-    var managedObjectContext: NSManagedObjectContext? = nil
+//    var managedObjectContext: NSManagedObjectContext? = nil
     
     
     override func viewDidLoad() {
@@ -73,6 +72,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let cloudManager = CloudKitManager.sharedInstance
             cloudManager.fetchEvaluations()
         }
+    }
+    
+    func saveEval(){
+        println("Salvar Eval")
     }
     
     func getNewName() -> (newName: String, nameCell: evaluationNameCell){

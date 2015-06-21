@@ -1,3 +1,4 @@
+
 //
 //  DetailViewController.swift
 //  Student Reminder
@@ -21,6 +22,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let notificationManager = NotificationManager.sharedInstance
     let regManager = RegistryManager.sharedInstance
     var arrayEvaluations: [NSManagedObject] = []
+    var selectedCell = EvaluationTableViewCell()
+    var selectedIndex = -1
     
 //    MARK: View
     override func viewDidLoad() {
@@ -90,13 +93,34 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.editButton.enabled = true
+        self.selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! EvaluationTableViewCell
+        self.selectedIndex = indexPath.row
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         self.editButton.enabled = false
+        self.selectedCell = EvaluationTableViewCell()
+        self.selectedIndex = -1
     }
     
-    @IBAction func editEval(sender: AnyObject) {
+//    @IBAction func editEval(sender: AnyObject) {
+//        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        let editView = storyBoard.instantiateViewControllerWithIdentifier("mvc") as! MasterViewController
+//        
+//        editView.title = "Edição de Tarefa"
+//        
+//        self.navigationController?.pushViewController(editView, animated: true)
+//    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let editView = segue.destinationViewController as! EvaluationEditViewController
+        
+        editView.oldName = selectedCell.nome.text!
+        editView.oldDate = selectedCell.auxDate
+        editView.oldSub = selectedCell.disciplina.text!
+        editView.oldType = selectedCell.tipo.text!
+        
+        editView.evaluation = arrayEvaluations[selectedIndex] as! Evaluations
     }
 }
 

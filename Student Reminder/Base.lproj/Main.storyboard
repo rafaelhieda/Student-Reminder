@@ -33,10 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-at-SRf">
-                                <rect key="frame" x="-4" y="267" width="588" height="283.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarefas Agendadas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sj-C7-9ME">
                                 <rect key="frame" x="0.5" y="246.5" width="600" height="20.5"/>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +40,7 @@
                                     <constraint firstAttribute="width" constant="600" id="h1L-nQ-iQF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-EH-s6J">
@@ -63,9 +59,13 @@
                                     <constraint firstAttribute="width" constant="600" id="EJY-mp-NCY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-at-SRf">
+                                <rect key="frame" x="-4" y="267" width="588" height="283.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -97,6 +97,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Jg6-B2-mc7">
                             <connections>
                                 <action selector="editEval:" destination="JEX-9P-axG" id="7NT-Ip-Er4"/>
+                                <segue destination="aVo-nz-jgz" kind="show" id="vCn-Tx-mS7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -108,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="65"/>
+            <point key="canvasLocation" x="684" y="65"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -358,7 +359,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="-630"/>
+            <point key="canvasLocation" x="624" y="-630"/>
         </scene>
         <!--Item-->
         <scene sceneID="r7l-gg-dq7">
@@ -395,7 +396,7 @@
                                     <constraint firstAttribute="width" constant="600" id="2qd-Xd-gWS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JfC-sC-IrY">
@@ -447,10 +448,10 @@
             </objects>
             <point key="canvasLocation" x="-1161" y="1635"/>
         </scene>
-        <!--Registry Edit-->
+        <!--Edição de Registro-->
         <scene sceneID="Fc6-ny-4b2">
             <objects>
-                <viewController storyboardIdentifier="regedit" id="jMt-X5-Los" customClass="RegistryEdit" customModule="Student_Reminder" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regedit" title="Edição de Registro" id="jMt-X5-Los" customClass="RegistryEdit" customModule="Student_Reminder" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8KB-dK-Hkv"/>
                         <viewControllerLayoutGuide type="bottom" id="k8P-eh-pdI"/>
@@ -462,32 +463,39 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nota:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A81-W8-LR3">
                                 <rect key="frame" x="145" y="225" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="48" y="342" width="61" height="21"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="053-EC-vCc">
                                 <rect key="frame" x="145" y="355" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="49" y="453" width="76" height="21"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUt-H6-1Ye">
                                 <rect key="frame" x="145" y="93" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="48" y="230" width="59" height="21"/>
+                                </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Tp-Fm-Ujq">
-                                <rect key="frame" x="305" y="93" width="181" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i8C-Qb-aEY">
-                                <rect key="frame" x="305" y="348" width="181" height="29"/>
+                                <rect key="frame" x="263" y="348" width="147" height="29"/>
                                 <segments>
                                     <segment title="Falta"/>
                                     <segment title="Entrege"/>
                                 </segments>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="203" y="450" width="181" height="29"/>
+                                </variation>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-2B-aKw">
                                 <rect key="frame" x="277" y="479" width="46" height="30"/>
@@ -495,19 +503,33 @@
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="643" width="46" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="save:" destination="jMt-X5-Los" eventType="touchUpInside" id="PtX-OK-VZj"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-5B-dBb">
-                                <rect key="frame" x="305" y="221" width="181" height="30"/>
+                                <rect key="frame" x="263" y="221" width="147" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="203" y="338" width="181" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Tp-Fm-Ujq">
+                                <rect key="frame" x="263" y="93" width="147" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="203" y="226" width="181" height="30"/>
+                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="PqA-2B-aKw" secondAttribute="centerX" id="qph-sY-0aZ"/>
+                            <constraint firstItem="k8P-eh-pdI" firstAttribute="top" secondItem="PqA-2B-aKw" secondAttribute="bottom" constant="91" id="USH-tZ-acc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -518,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oti-kI-rqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-481.5" y="1635"/>
+            <point key="canvasLocation" x="-482" y="1635"/>
         </scene>
         <!--Item-->
         <scene sceneID="yh1-WD-len">
@@ -662,7 +684,256 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXn-ML-myx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="766"/>
+            <point key="canvasLocation" x="246" y="961"/>
+        </scene>
+        <!--Master-->
+        <scene sceneID="X61-6W-CN1">
+            <objects>
+                <tableViewController storyboardIdentifier="mvc" title="Master" clearsSelectionOnViewWillAppear="NO" id="aVo-nz-jgz" customClass="EvaluationEditViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kx5-ll-poU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Nome da tarefa" id="hyR-v9-xSi">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationNameCell" rowHeight="44" id="KLu-jV-gQp" customClass="evaluationNameCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLu-jV-gQp" id="MQA-XI-61a">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome da tarefa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z7L-xn-URu">
+                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="KLu-jV-gQp" id="mzI-1G-rkY"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Z7L-xn-URu" firstAttribute="top" secondItem="MQA-XI-61a" secondAttribute="top" constant="7" id="CxV-9A-li3"/>
+                                                <constraint firstItem="Z7L-xn-URu" firstAttribute="top" secondItem="MQA-XI-61a" secondAttribute="top" constant="8" id="Gzs-aM-TEw"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z7L-xn-URu" secondAttribute="trailing" constant="25" id="UOG-WQ-Ylk"/>
+                                                <constraint firstItem="Z7L-xn-URu" firstAttribute="leading" secondItem="MQA-XI-61a" secondAttribute="leading" constant="8" id="gzq-0u-4pG"/>
+                                                <constraint firstItem="Z7L-xn-URu" firstAttribute="leading" secondItem="MQA-XI-61a" secondAttribute="leading" constant="25" id="xcX-tn-H4R"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z7L-xn-URu" secondAttribute="trailing" constant="8" id="y5D-tN-vCw"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="CxV-9A-li3"/>
+                                                    <exclude reference="Gzs-aM-TEw"/>
+                                                    <exclude reference="UOG-WQ-Ylk"/>
+                                                    <exclude reference="gzq-0u-4pG"/>
+                                                    <exclude reference="xcX-tn-H4R"/>
+                                                    <exclude reference="y5D-tN-vCw"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="Gzs-aM-TEw"/>
+                                                    <include reference="gzq-0u-4pG"/>
+                                                    <include reference="y5D-tN-vCw"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="CxV-9A-li3"/>
+                                                    <include reference="UOG-WQ-Ylk"/>
+                                                    <include reference="xcX-tn-H4R"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="evaluationName" destination="Z7L-xn-URu" id="tgZ-9r-GDe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Tipo de tarefa" id="eXx-sX-NcN" userLabel="Tipo de tarefa">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationTypeCell" rowHeight="44" id="2Wl-g1-Gkx" customClass="evaluationTypeCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Wl-g1-Gkx" id="0Ya-lw-pYX">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DVL-kg-ctw">
+                                                    <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                                    <segments>
+                                                        <segment title="Prova"/>
+                                                        <segment title="Tarefa"/>
+                                                        <segment title="Seminario"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DVL-kg-ctw" firstAttribute="top" secondItem="0Ya-lw-pYX" secondAttribute="top" constant="7" id="T6p-uN-caX"/>
+                                                <constraint firstAttribute="trailing" secondItem="DVL-kg-ctw" secondAttribute="trailing" constant="8" id="hiI-fx-j9e"/>
+                                                <constraint firstItem="DVL-kg-ctw" firstAttribute="leading" secondItem="0Ya-lw-pYX" secondAttribute="leading" constant="8" id="qqg-KC-tQ9"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="DVL-kg-ctw"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="T6p-uN-caX"/>
+                                                    <exclude reference="hiI-fx-j9e"/>
+                                                    <exclude reference="qqg-KC-tQ9"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="subviews">
+                                                    <include reference="DVL-kg-ctw"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="T6p-uN-caX"/>
+                                                    <include reference="hiI-fx-j9e"/>
+                                                    <include reference="qqg-KC-tQ9"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="typeSegmentedControl" destination="DVL-kg-ctw" id="VAy-Y8-t6y"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Disciplinas" id="vkA-4o-7Yb" userLabel="Disciplina">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="evaluationSubjectCell" rowHeight="195" id="8Ry-cO-YI4" userLabel="evaluationSubjectCell" customClass="EvaluationSubjectCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ry-cO-YI4" id="p8O-mt-uI4">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eml-2q-T2g">
+                                                    <rect key="frame" x="0.0" y="-14" width="600" height="162"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="8Ry-cO-YI4" id="Gbb-4z-cru"/>
+                                                        <outlet property="delegate" destination="8Ry-cO-YI4" id="FY3-OQ-GFP"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eml-2q-T2g" firstAttribute="top" secondItem="p8O-mt-uI4" secondAttribute="topMargin" id="8md-dK-66v"/>
+                                                <constraint firstItem="eml-2q-T2g" firstAttribute="trailing" secondItem="p8O-mt-uI4" secondAttribute="trailingMargin" id="IWV-rl-V8t"/>
+                                                <constraint firstAttribute="trailing" secondItem="eml-2q-T2g" secondAttribute="trailing" constant="72" id="PgS-4u-dZV"/>
+                                                <constraint firstItem="eml-2q-T2g" firstAttribute="leading" secondItem="p8O-mt-uI4" secondAttribute="leadingMargin" id="XeD-NQ-K0g"/>
+                                                <constraint firstItem="eml-2q-T2g" firstAttribute="top" secondItem="p8O-mt-uI4" secondAttribute="top" constant="12" id="Z0v-tf-gcc"/>
+                                                <constraint firstItem="eml-2q-T2g" firstAttribute="leading" secondItem="p8O-mt-uI4" secondAttribute="leading" constant="72" id="sNe-s7-jqw"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="8md-dK-66v"/>
+                                                    <exclude reference="IWV-rl-V8t"/>
+                                                    <exclude reference="PgS-4u-dZV"/>
+                                                    <exclude reference="XeD-NQ-K0g"/>
+                                                    <exclude reference="Z0v-tf-gcc"/>
+                                                    <exclude reference="sNe-s7-jqw"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="8md-dK-66v"/>
+                                                    <include reference="IWV-rl-V8t"/>
+                                                    <include reference="XeD-NQ-K0g"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="PgS-4u-dZV"/>
+                                                    <include reference="Z0v-tf-gcc"/>
+                                                    <include reference="sNe-s7-jqw"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="evaluationSubjectName" destination="eml-2q-T2g" id="Oip-Zd-jo1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Data" id="neR-3B-HzE">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evaluationDateCell" rowHeight="232" id="aOh-XJ-sXT" customClass="evaluationDateCell" customModule="Student_Reminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aOh-XJ-sXT" id="jHI-Ra-AkT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dkF-dM-BMi">
+                                                    <rect key="frame" x="29" y="26" width="543" height="122"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="455233950.74443799">
+                                                        <!--2015-06-05 21:52:30 +0000-->
+                                                    </date>
+                                                    <variation key="heightClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="584" height="215"/>
+                                                    </variation>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dkF-dM-BMi" firstAttribute="top" secondItem="jHI-Ra-AkT" secondAttribute="top" constant="8" id="H7q-fQ-Mtc"/>
+                                                <constraint firstAttribute="trailing" secondItem="dkF-dM-BMi" secondAttribute="trailing" constant="8" id="HuF-W4-IH0"/>
+                                                <constraint firstItem="dkF-dM-BMi" firstAttribute="leading" secondItem="jHI-Ra-AkT" secondAttribute="leading" constant="8" id="KmN-4p-kXA"/>
+                                                <constraint firstItem="dkF-dM-BMi" firstAttribute="top" secondItem="jHI-Ra-AkT" secondAttribute="top" constant="36" id="Soh-xE-a9g"/>
+                                                <constraint firstAttribute="trailing" secondItem="dkF-dM-BMi" secondAttribute="trailing" constant="15" id="lbf-WD-ODO"/>
+                                                <constraint firstAttribute="bottom" secondItem="dkF-dM-BMi" secondAttribute="bottom" constant="8" id="pfh-cP-gpt"/>
+                                                <constraint firstItem="dkF-dM-BMi" firstAttribute="leading" secondItem="jHI-Ra-AkT" secondAttribute="leading" constant="16" id="wfX-61-xkm"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="H7q-fQ-Mtc"/>
+                                                    <exclude reference="HuF-W4-IH0"/>
+                                                    <exclude reference="KmN-4p-kXA"/>
+                                                    <exclude reference="Soh-xE-a9g"/>
+                                                    <exclude reference="lbf-WD-ODO"/>
+                                                    <exclude reference="pfh-cP-gpt"/>
+                                                    <exclude reference="wfX-61-xkm"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="H7q-fQ-Mtc"/>
+                                                    <include reference="HuF-W4-IH0"/>
+                                                    <include reference="KmN-4p-kXA"/>
+                                                    <include reference="pfh-cP-gpt"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Soh-xE-a9g"/>
+                                                    <include reference="lbf-WD-ODO"/>
+                                                    <include reference="wfX-61-xkm"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="dkF-dM-BMi" id="R8M-HX-dP7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="aVo-nz-jgz" id="0cx-fS-5Ym"/>
+                            <outlet property="delegate" destination="aVo-nz-jgz" id="sBe-Yd-w1U"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ediçao de Tarefa" id="zUt-L3-VI8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0nB-mv-x1R">
+                            <connections>
+                                <action selector="editEval:" destination="aVo-nz-jgz" id="pzC-o2-99A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="registerTableView" destination="kx5-ll-poU" id="kqI-aD-qQz"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peb-cW-fb2" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="65"/>
         </scene>
     </scenes>
 </document>
