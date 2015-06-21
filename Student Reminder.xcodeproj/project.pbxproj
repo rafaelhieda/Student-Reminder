@@ -38,6 +38,9 @@
 		E3DDF5231B35B7CD007CE677 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5221B35B7CD007CE677 /* CloudKitManager.swift */; };
 		E3DDF5271B35B920007CE677 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5261B35B920007CE677 /* Evaluation.swift */; };
 		E3DDF5291B35C2F0007CE677 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DDF5281B35C2F0007CE677 /* CloudKit.framework */; };
+		E3DDF5321B371080007CE677 /* IpadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */; };
+		E3DDF5351B371159007CE677 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5341B371159007CE677 /* MenuTableViewController.swift */; };
+		E3DDF5371B372E2C007CE677 /* IpadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		E3DDF5241B35B83A007CE677 /* Student Reminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Student Reminder.entitlements"; sourceTree = "<group>"; };
 		E3DDF5261B35B920007CE677 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		E3DDF5281B35C2F0007CE677 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IpadStoryboard.storyboard; sourceTree = "<group>"; };
+		E3DDF5341B371159007CE677 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpadDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,8 @@
 		E3D38CB91B1E22BA00D6C709 = {
 			isa = PBXGroup;
 			children = (
+				E3DDF5331B37113A007CE677 /* iPad views */,
+				E3DDF5301B371023007CE677 /* Storyboard */,
 				E3DDF5281B35C2F0007CE677 /* CloudKit.framework */,
 				E3DDF5251B35B900007CE677 /* model */,
 				E3D38CEF1B1E359C00D6C709 /* Entities */,
@@ -150,7 +158,6 @@
 				E3D38CEC1B1E337C00D6C709 /* Manager */,
 				E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */,
 				E394ACE61B290687005772BC /* ViewControllers */,
-				E3D38CD01B1E22BA00D6C709 /* Main.storyboard */,
 				E3D38CD31B1E22BA00D6C709 /* Images.xcassets */,
 				E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */,
 				E3D38CC91B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld */,
@@ -228,6 +235,24 @@
 				E3DDF5261B35B920007CE677 /* Evaluation.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		E3DDF5301B371023007CE677 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E3D38CD01B1E22BA00D6C709 /* Main.storyboard */,
+				E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		E3DDF5331B37113A007CE677 /* iPad views */ = {
+			isa = PBXGroup;
+			children = (
+				E3DDF5341B371159007CE677 /* MenuTableViewController.swift */,
+				E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */,
+			);
+			name = "iPad views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +344,7 @@
 				E3D38CD21B1E22BA00D6C709 /* Main.storyboard in Resources */,
 				E3D38CD71B1E22BA00D6C709 /* LaunchScreen.xib in Resources */,
 				E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */,
+				E3DDF5321B371080007CE677 /* IpadStoryboard.storyboard in Resources */,
 				24B62DB61B2FED230055DB89 /* RegistryTableViewCell.xib in Resources */,
 				24C171DF1B2BACE400D82DD5 /* EvaluationTableViewCell.xib in Resources */,
 			);
@@ -353,8 +379,10 @@
 				E316A5EA1B22A63C00113F35 /* evaluationDateCell.swift in Sources */,
 				E3D38D1B1B22423800D6C709 /* CoreDataManager.swift in Sources */,
 				E3DDF5231B35B7CD007CE677 /* CloudKitManager.swift in Sources */,
+				E3DDF5371B372E2C007CE677 /* IpadDetailViewController.swift in Sources */,
 				24B62DB21B2FEA640055DB89 /* RegistryViewController.swift in Sources */,
 				E394AD1D1B2A7CA1005772BC /* SubjectCell.swift in Sources */,
+				E3DDF5351B371159007CE677 /* MenuTableViewController.swift in Sources */,
 				E394ACE51B290662005772BC /* SubjectViewController.swift in Sources */,
 				24C171DE1B2BACE400D82DD5 /* EvaluationTableViewCell.swift in Sources */,
 				E394ACE11B28DCAE005772BC /* EvaluationSubjectCell.swift in Sources */,
@@ -390,6 +418,7 @@
 				E3D38CD11B1E22BA00D6C709 /* Base */,
 			);
 			name = Main.storyboard;
+			path = "Student Reminder";
 			sourceTree = "<group>";
 		};
 		E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */ = {

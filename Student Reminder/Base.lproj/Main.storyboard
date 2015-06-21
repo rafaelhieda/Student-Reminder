@@ -65,13 +65,18 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pm4-at-SRf">
                                 <rect key="frame" x="-4" y="267" width="588" height="283.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="-4" y="266" width="588" height="485"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="-4" y="268" width="388" height="483"/>
+                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dFs-EH-s6J" firstAttribute="top" secondItem="N0t-wo-IxG" secondAttribute="bottom" id="0D4-P9-1Qq"/>
                             <constraint firstAttribute="centerX" secondItem="N0t-wo-IxG" secondAttribute="centerX" id="6lw-l0-CZF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Pm4-at-SRf" secondAttribute="trailing" id="7wc-k3-4dg"/>
                             <constraint firstAttribute="centerX" secondItem="4Sj-C7-9ME" secondAttribute="centerX" id="Gxo-uf-GSs"/>
                             <constraint firstItem="Pm4-at-SRf" firstAttribute="top" secondItem="dFs-EH-s6J" secondAttribute="bottom" constant="20" id="Tk1-4X-bWA"/>
                             <constraint firstItem="Pm4-at-SRf" firstAttribute="top" secondItem="4Sj-C7-9ME" secondAttribute="bottom" id="W7e-Zj-QRq"/>
@@ -114,7 +119,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="masterViewController" title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -491,7 +496,7 @@
                                 <rect key="frame" x="263" y="348" width="147" height="29"/>
                                 <segments>
                                     <segment title="Falta"/>
-                                    <segment title="Entrege"/>
+                                    <segment title="Entregue"/>
                                 </segments>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="203" y="450" width="181" height="29"/>
@@ -503,6 +508,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="277" y="480" width="46" height="30"/>
+                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="177" y="643" width="46" height="30"/>
                                 </variation>
@@ -529,8 +537,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PqA-2B-aKw" firstAttribute="top" secondItem="i8C-Qb-aEY" secondAttribute="bottom" constant="103" id="8Qt-To-d88"/>
                             <constraint firstItem="k8P-eh-pdI" firstAttribute="top" secondItem="PqA-2B-aKw" secondAttribute="bottom" constant="91" id="USH-tZ-acc"/>
+                            <constraint firstAttribute="trailing" secondItem="PqA-2B-aKw" secondAttribute="trailing" constant="277" id="Uwr-FB-WAy"/>
+                            <constraint firstItem="PqA-2B-aKw" firstAttribute="leading" secondItem="EaN-kK-CEA" secondAttribute="leading" constant="277" id="pO4-go-hpB"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Qt-To-d88"/>
+                                <exclude reference="Uwr-FB-WAy"/>
+                                <exclude reference="pO4-go-hpB"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="8Qt-To-d88"/>
+                                <include reference="Uwr-FB-WAy"/>
+                                <include reference="pO4-go-hpB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="grade" destination="Ftb-5B-dBb" id="GOB-5F-MYd"/>
@@ -602,7 +627,7 @@
         <!--Disciplinas-->
         <scene sceneID="mnY-JQ-bBi">
             <objects>
-                <tableViewController id="FmP-ur-fSZ" customClass="SubjectViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SubjectViewController" id="FmP-ur-fSZ" customClass="SubjectViewController" customModule="Student_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ZUr-lc-IbN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -684,7 +709,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXn-ML-myx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="961"/>
+            <point key="canvasLocation" x="400.5" y="765.75"/>
         </scene>
         <!--Master-->
         <scene sceneID="X61-6W-CN1">
