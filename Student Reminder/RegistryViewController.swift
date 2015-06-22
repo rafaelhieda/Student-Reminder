@@ -108,8 +108,17 @@ class RegistryViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - registryEdit button
     @IBAction func editRegistry(sender: AnyObject) {
         let registry = self.arrayRegistry[selectedRowIndex.row] as! Registry
+        var boardName = ""
         
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            boardName = "Main"
+        }
+        else {
+            boardName = "IpadStoryboard"
+        }
+        
+        let storyboard = UIStoryboard(name: boardName, bundle: nil)
+        
         let editView = storyboard.instantiateViewControllerWithIdentifier("regedit") as! RegistryEdit
         
         editView.registry = registry

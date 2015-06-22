@@ -41,6 +41,7 @@
 		E3DDF5321B371080007CE677 /* IpadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */; };
 		E3DDF5351B371159007CE677 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5341B371159007CE677 /* MenuTableViewController.swift */; };
 		E3DDF5371B372E2C007CE677 /* IpadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */; };
+		E3E577AB1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E577AA1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IpadStoryboard.storyboard; sourceTree = "<group>"; };
 		E3DDF5341B371159007CE677 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpadDetailViewController.swift; sourceTree = "<group>"; };
+		E3E577AA1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IphoneLandscapeStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D38CD01B1E22BA00D6C709 /* Main.storyboard */,
+				E3E577AA1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard */,
 				E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */,
 			);
 			name = Storyboard;
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3D38CD21B1E22BA00D6C709 /* Main.storyboard in Resources */,
+				E3E577AB1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard in Resources */,
 				E3D38CD71B1E22BA00D6C709 /* LaunchScreen.xib in Resources */,
 				E3D38CD41B1E22BA00D6C709 /* Images.xcassets in Resources */,
 				E3DDF5321B371080007CE677 /* IpadStoryboard.storyboard in Resources */,

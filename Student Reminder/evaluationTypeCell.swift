@@ -10,6 +10,7 @@ import UIKit
 
 class evaluationTypeCell: UITableViewCell{
     @IBOutlet weak var typeSegmentedControl:UISegmentedControl!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

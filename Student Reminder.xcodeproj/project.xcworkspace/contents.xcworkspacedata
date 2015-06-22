@@ -2,15 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Subjects.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../Evaluations.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SentEvaluations.swift">
-   </FileRef>
-   <FileRef
       location = "self:Student Reminder.xcodeproj">
    </FileRef>
 </Workspace>
