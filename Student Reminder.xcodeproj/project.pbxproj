@@ -130,9 +130,9 @@
 		E3D38CB91B1E22BA00D6C709 = {
 			isa = PBXGroup;
 			children = (
+				E3DDF5281B35C2F0007CE677 /* CloudKit.framework */,
 				E3DDF5331B37113A007CE677 /* iPad views */,
 				E3DDF5301B371023007CE677 /* Storyboard */,
-				E3DDF5281B35C2F0007CE677 /* CloudKit.framework */,
 				E3DDF5251B35B900007CE677 /* model */,
 				E3D38CEF1B1E359C00D6C709 /* Entities */,
 				E3D38CC41B1E22BA00D6C709 /* Student Reminder */,

@@ -9,7 +9,7 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="q5e-SD-muJ"/>
+                    <tabBarItem key="tabBarItem" title="Cad. Tarefas" image="Add_file_24" selectedImage="Add_file_24" id="q5e-SD-muJ"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -366,11 +366,11 @@
             </objects>
             <point key="canvasLocation" x="624" y="-630"/>
         </scene>
-        <!--Item-->
+        <!--Prox.Tarefas-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
                 <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KmI-Bg-AMP"/>
+                    <tabBarItem key="tabBarItem" title="Prox.Tarefas" image="Monthly_calendar_24" selectedImage="Monthly_calendar_24" id="KmI-Bg-AMP"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -465,19 +465,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nota:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A81-W8-LR3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nota:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A81-W8-LR3">
                                 <rect key="frame" x="145" y="225" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="053-EC-vCc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="053-EC-vCc">
                                 <rect key="frame" x="145" y="355" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUt-H6-1Ye">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Nome:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUt-H6-1Ye">
                                 <rect key="frame" x="145" y="93" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -516,7 +516,7 @@
                                     <action selector="save:" destination="jMt-X5-Los" eventType="touchUpInside" id="PtX-OK-VZj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-5B-dBb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-5B-dBb">
                                 <rect key="frame" x="263" y="221" width="147" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="eGL-w5-djF"/>
@@ -534,7 +534,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Tp-Fm-Ujq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Tp-Fm-Ujq">
                                 <rect key="frame" x="263" y="93" width="147" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="4g4-jY-aGs"/>
@@ -580,12 +580,12 @@
                             <mask key="constraints">
                                 <exclude reference="KeR-Rd-7wx"/>
                                 <exclude reference="Zvr-IB-AN3"/>
-                                <exclude reference="Xxl-DB-nxw"/>
-                                <exclude reference="fzH-v6-CP3"/>
                                 <exclude reference="AiS-KO-zPf"/>
                                 <exclude reference="ZhE-dT-t5I"/>
                                 <exclude reference="bJZ-he-Vdq"/>
                                 <exclude reference="tuh-Vy-khG"/>
+                                <exclude reference="Xxl-DB-nxw"/>
+                                <exclude reference="fzH-v6-CP3"/>
                                 <exclude reference="okg-q7-ebF"/>
                                 <exclude reference="Qz2-m5-cdh"/>
                                 <exclude reference="awS-J7-D24"/>
@@ -608,12 +608,12 @@
                             <mask key="constraints">
                                 <include reference="KeR-Rd-7wx"/>
                                 <include reference="Zvr-IB-AN3"/>
-                                <include reference="Xxl-DB-nxw"/>
-                                <include reference="fzH-v6-CP3"/>
                                 <include reference="AiS-KO-zPf"/>
                                 <include reference="ZhE-dT-t5I"/>
                                 <include reference="bJZ-he-Vdq"/>
                                 <include reference="tuh-Vy-khG"/>
+                                <include reference="Xxl-DB-nxw"/>
+                                <include reference="fzH-v6-CP3"/>
                                 <include reference="okg-q7-ebF"/>
                                 <include reference="Qz2-m5-cdh"/>
                                 <include reference="awS-J7-D24"/>
@@ -637,11 +637,11 @@
             </objects>
             <point key="canvasLocation" x="-482" y="1635"/>
         </scene>
-        <!--Item-->
+        <!--Tarefas Passadas-->
         <scene sceneID="yh1-WD-len">
             <objects>
                 <navigationController id="DA0-gR-79G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iTT-fA-f1i"/>
+                    <tabBarItem key="tabBarItem" title="Tarefas Passadas" image="Calendar_tick" selectedImage="Calendar_tick" id="iTT-fA-f1i"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDS-vm-PNd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -675,11 +675,11 @@
             </objects>
             <point key="canvasLocation" x="-809" y="-265"/>
         </scene>
-        <!--Item-->
+        <!--Disciplinas-->
         <scene sceneID="mja-du-Vtz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VfN-BR-cN0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="U9o-eL-cRf"/>
+                    <tabBarItem key="tabBarItem" title="Disciplinas" image="Round_add_button_24" selectedImage="Round_add_button_24" id="U9o-eL-cRf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rv4-jD-VOy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1015,7 +1015,7 @@
                             <outlet property="delegate" destination="aVo-nz-jgz" id="sBe-Yd-w1U"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ediçao de Tarefa" id="zUt-L3-VI8">
+                    <navigationItem key="navigationItem" title="Edição de Tarefa" id="zUt-L3-VI8">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0nB-mv-x1R">
                             <connections>
                                 <action selector="editEval:" destination="aVo-nz-jgz" id="pzC-o2-99A"/>
@@ -1031,4 +1031,10 @@
             <point key="canvasLocation" x="1326" y="65"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add_file_24" width="24" height="24"/>
+        <image name="Calendar_tick" width="24" height="24"/>
+        <image name="Monthly_calendar_24" width="24" height="24"/>
+        <image name="Round_add_button_24" width="24" height="24"/>
+    </resources>
 </document>
