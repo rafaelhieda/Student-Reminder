@@ -67,6 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        var cloudManager = CloudKitManager.sharedInstance
+        var manager = CoreDataManager.sharedInstance
+        for index in 0 ... manager.selectEvaluations().count - 1 {
+            var newEvaluation = (manager.selectEvaluations()[index] as! Evaluations)
+            var persistenceEvaluation = Evaluation(newType: newEvaluation.type, newDate: newEvaluation.date, newName: newEvaluation.name, newSubject: newEvaluation.subject.name)
+            cloudManager.insertEvaluation(persistenceEvaluation)
+        }
+        sleep(3)
+        println("hello")
         self.saveContext()
     }
 

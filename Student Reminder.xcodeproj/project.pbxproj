@@ -131,10 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				E3DDF5281B35C2F0007CE677 /* CloudKit.framework */,
-				E3DDF5331B37113A007CE677 /* iPad views */,
-				E3DDF5301B371023007CE677 /* Storyboard */,
-				E3DDF5251B35B900007CE677 /* model */,
-				E3D38CEF1B1E359C00D6C709 /* Entities */,
 				E3D38CC41B1E22BA00D6C709 /* Student Reminder */,
 				E3D38CDF1B1E22BA00D6C709 /* Student ReminderTests */,
 				E3D38CC31B1E22BA00D6C709 /* Products */,
@@ -153,14 +149,18 @@
 		E3D38CC41B1E22BA00D6C709 /* Student Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */,
 				E3DDF5241B35B83A007CE677 /* Student Reminder.entitlements */,
+				E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */,
+				E3D38CD31B1E22BA00D6C709 /* Images.xcassets */,
+				E3D38CC91B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld */,
+				E3DDF5331B37113A007CE677 /* iPad views */,
+				E3DDF5301B371023007CE677 /* Storyboard */,
+				E3DDF5251B35B900007CE677 /* model */,
+				E3D38CEF1B1E359C00D6C709 /* Entities */,
 				E3D38D1C1B2255A100D6C709 /* Cells */,
 				E3D38CEC1B1E337C00D6C709 /* Manager */,
-				E3D38CC71B1E22BA00D6C709 /* AppDelegate.swift */,
 				E394ACE61B290687005772BC /* ViewControllers */,
-				E3D38CD31B1E22BA00D6C709 /* Images.xcassets */,
-				E3D38CD51B1E22BA00D6C709 /* LaunchScreen.xib */,
-				E3D38CC91B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld */,
 				E3D38CC51B1E22BA00D6C709 /* Supporting Files */,
 			);
 			path = "Student Reminder";
@@ -211,6 +211,7 @@
 				24C3FF521B31341200D97522 /* Registry.swift */,
 			);
 			name = Entities;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E3D38D1C1B2255A100D6C709 /* Cells */ = {
@@ -235,6 +236,7 @@
 				E3DDF5261B35B920007CE677 /* Evaluation.swift */,
 			);
 			name = model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E3DDF5301B371023007CE677 /* Storyboard */ = {
@@ -244,6 +246,7 @@
 				E3DDF5311B371080007CE677 /* IpadStoryboard.storyboard */,
 			);
 			name = Storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E3DDF5331B37113A007CE677 /* iPad views */ = {
@@ -253,6 +256,7 @@
 				E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */,
 			);
 			name = "iPad views";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

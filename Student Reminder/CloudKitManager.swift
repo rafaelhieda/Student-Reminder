@@ -48,7 +48,7 @@ class CloudKitManager {
         let record = CKRecord(recordType: "Evaluations")
         record.setValue(newEvaluation.name, forKey: "name")
         record.setValue(newEvaluation.date, forKey: "date")
-        record.setValue(newEvaluation.subject, forKey: "subject")
+        record.setValue(newEvaluation.subject,  forKey: "subject")
         record.setValue(newEvaluation.type, forKey: "type")
         publicData.saveRecord(record, completionHandler: { record, error in
             if error != nil {

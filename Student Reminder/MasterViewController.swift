@@ -23,15 +23,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     override func viewDidLoad() {
-//        self.manager.insertSubject("Portugues")
-//        self.manager.insertSubject("Ingles")
-//        self.manager.insertSubject("Geografia")
+
         self.view.userInteractionEnabled = true
         manager.selectEvaluations()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         
         view.addGestureRecognizer(tap)
+      
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,9 +70,23 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         else{
             self.insertNewEvaluation(newName, newType: newType, newDate: newDate, newSubject: newSubject)
             nameCell.evaluationName.text = ""
-            let cloudManager = CloudKitManager.sharedInstance
-            cloudManager.fetchEvaluations()
+            
+            var cloudManager = CloudKitManager.sharedInstance
+            var manager = CoreDataManager.sharedInstance
+            for index in 0 ... manager.selectEvaluations().count - 1 {
+                var newEvaluation = (manager.selectEvaluations()[index] as! Evaluations)
+                var persistenceEvaluation = Evaluation(newType: newEvaluation.type, newDate: newEvaluation.date, newName: newEvaluation.name, newSubject: newEvaluation.subject.name)
+                cloudManager.insertEvaluation(persistenceEvaluation)
+            }
+            
+//            for index in 0 ... manager.selectEvaluations().count - 1 {
+//                var newEvaluation = (manager.selectEvaluations()[index] as! Evaluations)
+//                var persistenceEvaluation = Evaluation(newType: newEvaluation.type, newDate: newEvaluation.date, newName: newEvaluation.name, newSubject: newEvaluation.subject.name)
+//                cloudManager.deleteEvaluation(persistenceEvaluation)
+//            }
+            
         }
+        
     }
     
     func saveEval(){

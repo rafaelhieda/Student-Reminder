@@ -563,7 +563,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="16" y="94" width="59" height="30"/>
+                                    <rect key="frame" x="16" y="96" width="59" height="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="48" y="230" width="59" height="21"/>

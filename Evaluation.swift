@@ -13,5 +13,16 @@ class Evaluation: NSObject {
      var date: NSDate!
      var name: String!
      var subject: String!
+    
+    init(newType: String, newDate: NSDate,  newName: String, newSubject: String) {
+        type = newType
+        date = newDate
+        name = newName
+        subject = newSubject
+    }
+    
+    override init() {
+        
+    }
 
 }
