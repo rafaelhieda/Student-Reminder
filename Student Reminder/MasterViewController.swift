@@ -71,13 +71,25 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             self.insertNewEvaluation(newName, newType: newType, newDate: newDate, newSubject: newSubject)
             nameCell.evaluationName.text = ""
             
-            var cloudManager = CloudKitManager.sharedInstance
-            var manager = CoreDataManager.sharedInstance
-            for index in 0 ... manager.selectEvaluations().count - 1 {
-                var newEvaluation = (manager.selectEvaluations()[index] as! Evaluations)
-                var persistenceEvaluation = Evaluation(newType: newEvaluation.type, newDate: newEvaluation.date, newName: newEvaluation.name, newSubject: newEvaluation.subject.name)
-                cloudManager.insertEvaluation(persistenceEvaluation)
+            
+            if Reachability.isConnectedToNetwork() == true {
+                println("Internet connection OK")
+                var cloudManager = CloudKitManager.sharedInstance
+                var manager = CoreDataManager.sharedInstance
+                for index in 0 ... manager.selectEvaluations().count - 1 {
+                    var newEvaluation = (manager.selectEvaluations()[index] as! Evaluations)
+                    var persistenceEvaluation = Evaluation(newType: newEvaluation.type, newDate: newEvaluation.date, newName: newEvaluation.name, newSubject: newEvaluation.subject.name)
+                    cloudManager.insertEvaluation(persistenceEvaluation)
+                }
+                
+            } else {
+                println("Internet connection FAILED")
+                var alert = UIAlertView(title: "Sem conexão de internet", message: "Verifique se sua conexão está ativa. Não Foi possível sincronizar com o servidor.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
+            
+            
+           
             
 //            for index in 0 ... manager.selectEvaluations().count - 1 {
 //                var newEvaluation = (manager.selectEvaluations()[index] as! Evaluations)

@@ -56,14 +56,17 @@ class NotificationManager: NSObject {
                     
                     let diffDate = (date.timeIntervalSinceDate(newDate!) / (60*60*24))
                     var roundedDiffDate = round(diffDate)
-                    if roundedDiffDate == 0 {
+                    var differenceAlertValue = Int(roundedDiffDate) - days
+                    
+                    if differenceAlertValue == 0 {
                         alertBody = "\(evaluationName) de \(subject) está vencendo! Vence hoje!"
                     }
-                    else if roundedDiffDate == 1 {
-                        alertBody = "\(evaluationName) de \(subject) está vencendo! Faltam \(Int(roundedDiffDate)) dia"
+                    else if differenceAlertValue == 1 {
+                        
+                        alertBody = "\(evaluationName) de \(subject) está vencendo! Faltam \(Int(differenceAlertValue)) dia"
                     }
                     else {
-                        alertBody = "\(evaluationName) de \(subject) está vencendo! Faltam \(Int(roundedDiffDate)) dias"
+                        alertBody = "\(evaluationName) de \(subject) está vencendo! Faltam \(Int(differenceAlertValue)) dias"
                     }
                     
                     if roundedDiffDate >= 0 && roundedDiffDate <= 7 {
@@ -72,7 +75,7 @@ class NotificationManager: NSObject {
                             localNotification.alertTitle = "Tarefas a serem Entregues/Feitas:"
                             localNotification.alertBody = alertBody
                             localNotification.soundName = UILocalNotificationDefaultSoundName
-                            localNotification.fireDate = newDate!.dateByAddingTimeInterval( (5 * NSTimeInterval(aux)) )
+                            localNotification.fireDate = newDate!.dateByAddingTimeInterval( (20 * NSTimeInterval(aux)) )
                             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
                         }
                         
@@ -81,15 +84,43 @@ class NotificationManager: NSObject {
                 }
                 aux--
             }
+//            for var index:Int = 0; index < days; days++ {
+//                for evaluation in evalArray {
+//                  
+//
+//                    var evaluationName = evaluation.name as String
+//                    var date = evaluation.date as NSDate
+//                    var subject = evaluation.subject.name as String
+//                    
+//                    
+//                    println(evaluationName)
+//                    
+//                    let diffDate = (date.timeIntervalSinceDate(newDate!) / (60*60*24))
+//                    var roundedDiffDate = round(diffDate)
+//                    if roundedDiffDate == 0 {
+//                        alertBody = "\(evaluationName) de \(subject) está vencendo! Vence hoje!"
+//                    }
+//                    else if roundedDiffDate == 1 {
+//                        alertBody = "\(evaluationName) de \(subject) está vencendo! Faltam \(Int(roundedDiffDate)) dia"
+//                    }
+//                    else {
+//                        alertBody = "\(evaluationName) de \(subject) está vencendo! Faltam \(Int(roundedDiffDate)) dias"
+//                    }
+//                    
+//                    if roundedDiffDate >= 0 && roundedDiffDate <= 7 {
+//                        
+//                        var localNotification = UILocalNotification()
+//                        localNotification.alertTitle = "Tarefas a serem Entregues/Feitas:"
+//                        localNotification.alertBody = alertBody
+//                        localNotification.soundName = UILocalNotificationDefaultSoundName
+//                        localNotification.fireDate = newDate!.dateByAddingTimeInterval( (5 * NSTimeInterval(aux)) )
+//                        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+//                    }
+//                }
+//            }
+
+            
         }
-//        if !evalArray.isEmpty {
-//            var localNotification = UILocalNotification()
-//            localNotification.alertTitle = "Tarefas a serem Entregues/Feitas:"
-//            localNotification.alertBody = alertBody
-//            localNotification.fireDate = dateNow.dateByAddingTimeInterval(30)
-//            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-//            
-//        }
     }
     
     func reloadNotifications(){

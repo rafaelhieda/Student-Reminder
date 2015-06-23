@@ -74,6 +74,25 @@ class CloudKitManager {
             }
         })
     }
+    
+    func fetchSubjects() {
+        var subjectsArray = [String]()
+        let query = CKQuery(recordType: "Subjects", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+        self.publicData.performQuery(query, inZoneWithID: nil, completionHandler: { results, error in
+            if error == nil {
+                if let records = results as? [CKRecord] {
+                    for eachSubject in results {
+                        subjectsArray.append(eachSubject["name"] as! String)
+                    }
+                }
+            }
+            else {
+                println(error)
+            }
+            })
+        
+        
+    }
 }
 
 //

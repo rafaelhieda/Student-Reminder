@@ -42,6 +42,7 @@
 		E3DDF5351B371159007CE677 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5341B371159007CE677 /* MenuTableViewController.swift */; };
 		E3DDF5371B372E2C007CE677 /* IpadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */; };
 		E3E577AB1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E577AA1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard */; };
+		E3E577AD1B38D1F800F9CFE0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E577AC1B38D1F800F9CFE0 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		E3DDF5341B371159007CE677 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		E3DDF5361B372E2C007CE677 /* IpadDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpadDetailViewController.swift; sourceTree = "<group>"; };
 		E3E577AA1B38C6FB00F9CFE0 /* IphoneLandscapeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IphoneLandscapeStoryboard.storyboard; sourceTree = "<group>"; };
+		E3E577AC1B38D1F800F9CFE0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		E3D38CB91B1E22BA00D6C709 = {
 			isa = PBXGroup;
 			children = (
+				E3E577AC1B38D1F800F9CFE0 /* Reachability.swift */,
 				E3DDF5281B35C2F0007CE677 /* CloudKit.framework */,
 				E3D38CC41B1E22BA00D6C709 /* Student Reminder */,
 				E3D38CDF1B1E22BA00D6C709 /* Student ReminderTests */,
@@ -377,6 +380,7 @@
 				24C3FF571B31491400D97522 /* RegistryEdit.swift in Sources */,
 				E3D38D161B1EBA2000D6C709 /* Evaluations.swift in Sources */,
 				E3D38CC81B1E22BA00D6C709 /* AppDelegate.swift in Sources */,
+				E3E577AD1B38D1F800F9CFE0 /* Reachability.swift in Sources */,
 				243D93C91B368ACF007EC31C /* EvaluationEdit.swift in Sources */,
 				E3D38D201B225BDA00D6C709 /* evaluationTypeCell.swift in Sources */,
 				E3D38CCB1B1E22BA00D6C709 /* Student_Reminder.xcdatamodeld in Sources */,

@@ -59,9 +59,6 @@
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="-4" y="266" width="588" height="485"/>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="-4" y="268" width="408" height="283"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="-4" y="268" width="388" height="483"/>
                                 </variation>
@@ -256,7 +253,7 @@
                                                 <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOr-8J-w3f">
                                                     <rect key="frame" x="0.0" y="-14" width="600" height="162"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="195"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="194.5"/>
                                                     </variation>
                                                     <connections>
                                                         <outlet property="dataSource" destination="p7O-cP-FNb" id="yIL-gT-NxM"/>
