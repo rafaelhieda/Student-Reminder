@@ -91,7 +91,26 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         }
         else {
             saveSub(cell)
+            
+            if Reachability.isConnectedToNetwork() == true {
+                println("Internet connection OK")
+                var cloudManager = CloudKitManager.sharedInstance
+                var manager = CoreDataManager.sharedInstance
+                println(cell.subjectNameTF.text)
+                cloudManager.insertSubject(cell.subjectNameTF.text)
+                
+                var alert = UIAlertView(title: "Disciplina Inserida!", message: "\(cell.subjectNameTF.text) foi inserida com sucesso!", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+                
+                
+            } else {
+                println("Internet connection FAILED")
+                var alert = UIAlertView(title: "Sem conexão de internet", message: "Verifique se sua conexão está ativa. Não Foi possível sincronizar com o servidor.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+            }
+
         }
+        cell.subjectNameTF.text = ""
     }
     
     func notificateError(){
@@ -104,7 +123,7 @@ class SubjectViewController: UITableViewController,UISearchBarDelegate,UITextFie
         manager.insertSubject(cell.subjectNameTF.text)
         subjectNameArray = subjectsName().stringType
         tableView.reloadData()
-        cell.subjectNameTF.text = ""
+        
         NSNotificationCenter.defaultCenter().postNotificationName("teste", object: nil)
     }
     

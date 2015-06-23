@@ -90,9 +90,39 @@ class CloudKitManager {
                 println(error)
             }
             })
-        
-        
     }
+    
+    func insertSubject(newSubject: String) {
+        let query = CKQuery(recordType: "Subject", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+        let record = CKRecord(recordType: "Subject")
+        record.setValue(newSubject, forKey: "name")
+        publicData.saveRecord(record, completionHandler: { record, error in
+            if error != nil {
+                println(error)
+            }
+        })
+    }
+    
+    func deleteSubject(oldSubject: String) {
+        let query = CKQuery(recordType: "Subject", predicate: NSPredicate(format: "(name == %@)", argumentArray: [oldSubject]))
+        publicData.performQuery(query, inZoneWithID: nil, completionHandler: { results, error in
+            if error == nil {
+                if results.count > 0 {
+                    let record:CKRecord! = results[0] as! CKRecord
+                    println(record)
+                    
+                    self.publicData.deleteRecordWithID(record.recordID, completionHandler: { record, error  in
+                        if error != nil {
+                            println(error)
+                        }
+                    })
+                }
+            }
+        })
+    }
+    
+    
+    
 }
 
 //
