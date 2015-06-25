@@ -1,4 +1,4 @@
 # Student-Reminder
 
-#André Lucas Ota
-#Rafael Hieda
+André Lucas Ota<br>
+Rafael Hieda
