@@ -1,5 +1,4 @@
 # Student-Reminder
 
-Alunos:
-André Lucas Ota
-Rafael Hieda
+#André Lucas Ota
+#Rafael Hieda
